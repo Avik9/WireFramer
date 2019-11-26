@@ -25,7 +25,7 @@ class App extends Component {
             <Navbar />
             <Switch>
               <Route exact path="/" component={HomeScreen} />
-              <Route path="/databaseTester" component={AdminScreen} />
+              <Route path="/adminScreen" component={AdminScreen} />
               <Route path="/register" component={RegisterScreen} />
               <Route path="/login" component={LoginScreen} />
               {/* <Route path="/todoList/:id/:key" component={ItemScreen} />
