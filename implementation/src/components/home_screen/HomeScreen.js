@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
+import WireframeLinks from './WireframeLinks'
 
 class HomeScreen extends Component {
     handleNewList = () => {
-        var todoList = {
-            items: [],
+        var wireframe = {
+            components: [],
             name: '(No Name)',
-            owner: '(No Owner)',
+            owner: this.props.auth.uid,
             timestamp: this.props.firestore.FieldValue.serverTimestamp(),
-            isIncreasing: false,
+            zoomPercent: 100,
         }
-        this.props.firestore.collection('todoLists').add(todoList).then(ref => {
-            this.props.history.push('/todoList/' + ref.id);
+        this.props.firestore.collection('wireframes').add(wireframe).then(ref => {
+            this.props.history.push('/wireframe/' + ref.id);
         });
+
+        console.log("Current User: " + this.props.auth.uid);
     }
 
     updateTimeStamp = (id) => {
         console.log("Opened: " + id);
-        this.props.firestore.collection('todoLists').doc(id).update({
+        this.props.firestore.collection('wireframes').doc(id).update({
             timestamp: this.props.firestore.FieldValue.serverTimestamp(),
         });
     };
@@ -34,18 +37,19 @@ class HomeScreen extends Component {
             <div className="dashboard">
                 <div className="row">
                     <div className="col m4">
-                        {/* <TodoListLinks updateTime={this.updateTimeStamp} /> */}
+                        <WireframeLinks updateTime={this.updateTimeStamp} />
                     </div>
 
-                    <div className="col s8">
+                    <div className="col s1" />
+
+                    <div className="col s7 center">
                         <div className="banner">
-                            @todo<br />
-                            List Maker
+                            Wireframer
                         </div>
 
                         <div className="home_new_list_container">
                             <button className="home_new_list_button" onClick={this.handleNewList}>
-                                Create a New To Do List
+                                Create a New Wireframe
                             </button>
                         </div>
                     </div>
@@ -64,6 +68,6 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'todoLists', orderBy: ['timestamp', 'desc'] },
+        { collection: 'wireframes', orderBy: ['timestamp', 'desc'] },
     ]),
 )(HomeScreen);

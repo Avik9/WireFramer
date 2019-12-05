@@ -1,17 +1,21 @@
 {
-  "name": "implementation",
+  "name": "todo_hw3",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "firebase": "^7.5.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-redux": "^7.1.3",
-    "react-redux-firebase": "^3.0.5",
+    "@babel/runtime": "^7.7.2",
+    "firebase": "^7.2.2",
+    "moment": "^2.24.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-materialize": "^3.4.1",
+    "react-moment": "^0.9.6",
+    "react-redux": "^7.1.1",
+    "react-redux-firebase": "^3.0.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
-    "redux-firestore": "^0.10.0",
+    "redux-firestore": "^0.9.0",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -34,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2"
   }
 }
