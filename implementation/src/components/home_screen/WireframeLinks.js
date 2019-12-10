@@ -9,9 +9,9 @@ class WireframeLinks extends React.Component {
         const wireframes = this.props.wireframes;
         console.log("Wireframes: " + wireframes);
         return (
-            <div className="todo-lists section">
+            <div className="wireframe-lists section">
                 {wireframes && wireframes.map(wireframe => ( wireframe.owner === this.props.auth.uid ?
-                    <Link to={'/wireframe/' + wireframe.id} key={wireframe.id} onClick={() => this.props.updateTime(wireframe.id)}>
+                    <Link to={'/wireframe/' + wireframe.id} key={wireframe.id} wireframe={wireframe} onClick={() => this.props.updateTime(wireframe.id)}>
                         <WireframeCard wireframe={wireframe} />
                     </Link> : null
                 ))}

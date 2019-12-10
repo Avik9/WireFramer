@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 // import { firestoreConnect } from 'react-redux-firebase';
 import WireFrameJson from './WireFramerData.json'
 import { getFirestore } from 'redux-firestore';
@@ -62,7 +62,8 @@ class AdminScreen extends React.Component {
 
                 <button onClick={this.handleClear}>Clear Database</button>
                 <button onClick={this.handleReset}>Reset Database</button>
-            </div>)
+            </div>
+            )
     }
 }
 

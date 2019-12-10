@@ -43,11 +43,11 @@ div.banner {
   cursor: pointer;
 }
 
-.todo-list-link {
+.wireframe-list-link {
   background-color: transparent;
 }
 
-.todo-list-link:hover {
+.wireframe-list-link:hover {
   color: var(--swatch-accent);
 }
 
@@ -56,29 +56,29 @@ div.banner {
 }
 
 
-  h5 {
-    font-size: 24pt;
-    line-height: 110%;
-    margin: 1.1rem 0 .656rem 0;
-  }
+h5 {
+  font-size: 24pt;
+  line-height: 110%;
+  margin: 1.1rem 0 .656rem 0;
+}
   
-  .item-card {
-    background-color: var(--swatch-primary);
-    border-radius: 15px;
-    border-style: solid;
-    border-color: #111111;
-  }
+.item-card {
+  background-color: var(--swatch-primary);
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #111111;
+}
 
-  .list_item_header_card {
-    background-color: var(--swatch-accent);
-  }
+.list_item_header_card {
+  background-color: var(--swatch-accent);
+}
   
-  .row .col.s1 {
-    margin-left: auto;
-    left: auto;
-    right: auto;
-    width: 5.5%;
-  }
+.row .col.s1 {
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  width: 5.5%;
+}
 
 .fixed-action-btn.direction-left ul, .fixed-action-btn.direction-right ul {
 	text-align: right;
