@@ -55,8 +55,8 @@ class EditScreen extends Component {
                 <div className="row">
                     <div className="col s3 center">
                         <div className="card row card-content text-darken-3 item-card">
-                            <span className="col s3 center edit_buttons" onClick={this.zoomIn}>A</span>
-                            <span className="col s3 center edit_buttons" onClick={this.zoomOut}>B</span>
+                            <span className="col s3 center edit_buttons" onClick={this.zoomIn}><i class="material-icons">zoom_in</i></span>
+                            <span className="col s3 center edit_buttons" onClick={this.zoomOut}><i class="material-icons">zoom_out</i></span>
                             <span className="col s3 center edit_buttons" onClick={this.saveFrame}>Save</span>
                             <span className="col s3 center edit_buttons" onClick={this.closeFrame}>Close</span>
                         </div>

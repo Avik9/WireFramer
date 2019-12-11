@@ -52,7 +52,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
 .edit_buttons {
   /* background-position-y: center; */
   text-align: center;
-  /* font-size: 24pt; */
+  font-size: 12pt;
   padding-top: 0%;
   background-color: transparent;
 }
