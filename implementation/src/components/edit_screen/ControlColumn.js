@@ -4,9 +4,37 @@ class ControlColumn extends React.Component {
 
     render() {
         return (
-            <div className="card z-depth-0 wireframe-list-link">
+            <div className="card z-depth-0">
                 <div className="card-content grey-text text-darken-3 item-card">
-                    <span className="card-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a luctus purus, at egestas ligula. Morbi ornare consequat leo, quis hendrerit metus molestie quis. Nunc aliquet nisl ornare, accumsan ante.</span>
+                    <div class="row">
+                        <div class="col s12">
+
+                        </div>
+                        <span class="card-title center">
+                            <strong>Container</strong>
+                        </span>
+
+                        <div class="col s12">
+                            <p class="center">Prompt for Input:</p>
+                        </div>
+                        <span class="card-title center">
+                            <strong>Label</strong>
+                        </span>
+
+                        <div class="col s12">
+
+                        </div>
+                        <span class="card-title center">
+                            <strong>Button</strong>
+                        </span>
+
+                        <div class="col s12">
+
+                        </div>
+                        <span class="card-title center">
+                            <strong>Textfield</strong>
+                        </span>
+                    </div>
                 </div>
             </div>
         );

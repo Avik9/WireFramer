@@ -68,7 +68,7 @@ class EditScreen extends Component {
                     </div>
 
                     <div className="col s3 center">
-                        <PropertiesColumn wireframe={this.props.wireframe}/>
+                        <PropertiesColumn wireframe={this.props.wireframe} component={this.props.wireframe.components[1]}/>
                     </div>
                 </div>
             </div>
