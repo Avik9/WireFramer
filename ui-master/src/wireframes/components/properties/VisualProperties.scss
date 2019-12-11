@@ -1,0 +1,10 @@
+@import '_mixins';
+@import '_vars';
+
+.text-alignment {
+    button {
+        padding-left: 0;
+        padding-right: 0;
+        width: 32px;
+    }
+}

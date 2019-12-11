@@ -29,6 +29,7 @@ class RegisterScreen extends Component {
     const { firebase } = props;
     const newUser = { ...state };
 
+    console.log("creating a user");
     props.register(newUser, firebase);
   }
 

@@ -1,0 +1,44 @@
+@import '_mixins';
+@import '_vars';
+
+.asset-shape {
+    & {
+        border-right: 1px solid $color-border;
+        border-bottom: 1px solid $color-border;
+        background: transparent;
+        text-align: center;
+        text-decoration: none;
+        height: 100%;
+    }
+
+    &-title {
+        @include truncate;
+        line-height: 30px;
+    }
+
+    &-image-row {
+        line-height: 120px;
+    }
+
+    &-image {
+        @include improve-image;
+        max-width: 120px;
+        max-height: 70px;
+    }
+}
+
+.asset-shapes {
+    &-search {
+        input {
+            @include border-radius(0);
+            border-left: 0;
+            border-right: 0;
+        }
+    }
+
+    &-list {
+        @include flex-grow(1);
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

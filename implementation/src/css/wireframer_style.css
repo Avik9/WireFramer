@@ -64,7 +64,6 @@ h5 {
   
 .item-card {
   background-color: var(--swatch-primary);
-  border-radius: 15px;
   border-style: solid;
   border-color: #111111;
 }

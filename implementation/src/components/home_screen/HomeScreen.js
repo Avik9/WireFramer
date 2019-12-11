@@ -28,6 +28,12 @@ class HomeScreen extends Component {
         });
     };
 
+    deleteList = (e, listId) => {
+        this.props.firestore.collection('wireframes').doc(listId).delete();
+        e.preventDefault();
+        return;
+    }
+
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
@@ -37,7 +43,7 @@ class HomeScreen extends Component {
             <div className="dashboard">
                 <div className="row">
                     <div className="col m4">
-                        <WireframeLinks updateTime={this.updateTimeStamp} />
+                        <WireframeLinks deleteList={this.deleteList} updateTime={this.updateTimeStamp} />
                     </div>
 
                     <div className="col s1" />

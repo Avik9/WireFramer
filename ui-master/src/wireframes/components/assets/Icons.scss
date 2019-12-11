@@ -1,0 +1,51 @@
+@import '_mixins';
+@import '_vars';
+
+.asset-icon {
+    & {
+        border-right: 1px solid $color-border;
+        border-bottom: 1px solid $color-border;
+        background: transparent;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    &-title {
+        @include truncate;
+        line-height: 30px;
+    }
+
+    &-preview {
+        line-height: 100px;
+    }
+
+    &-preview {
+        height: 70px;
+    }
+
+    .fa {
+        font-size: 36px;
+    }
+}
+
+.asset-icons {
+    &-search {
+        input, .ant-select-selection {
+            @include border-radius(0);
+            border-left: 0;
+            border-right: 0;
+        }
+
+        .ant-select {
+            margin: 0;
+            margin-top: 4px;
+            display: block;
+        }
+    }
+
+    &-list {
+        @include flex-grow(1);
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

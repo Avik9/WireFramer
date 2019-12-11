@@ -12,7 +12,7 @@ class WireframeLinks extends React.Component {
             <div className="wireframe-lists section">
                 {wireframes && wireframes.map(wireframe => ( wireframe.owner === this.props.auth.uid ?
                     <Link to={'/wireframe/' + wireframe.id} key={wireframe.id} wireframe={wireframe} onClick={() => this.props.updateTime(wireframe.id)}>
-                        <WireframeCard wireframe={wireframe} />
+                        <WireframeCard wireframe={wireframe} deleteList={this.props.deleteList} />
                     </Link> : null
                 ))}
             </div>

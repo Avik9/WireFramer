@@ -8,7 +8,10 @@ class WireframeCard extends React.Component {
         return (
             <div className="card z-depth-0 wireframe-list-link">
                 <div className="card-content grey-text text-darken-3 item-card">
-                    <span className="card-title">{wireframe.name}</span>
+                    <h6>
+                        {wireframe.name}
+                        <button class="right" onClick={(e) => this.props.deleteList(e, wireframe.id)}>X</button>
+                    </h6>
                 </div>
             </div>
         );

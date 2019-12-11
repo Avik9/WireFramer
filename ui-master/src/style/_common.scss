@@ -1,0 +1,197 @@
+@import '_mixins';
+@import '_vars';
+
+// sass-lint:disable no-ids
+
+#root {
+    height: 100%;
+}
+
+#root > .ant-layout {
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.no-select {
+    @include no-selection;
+}
+
+.no-border-radius {
+    @include border-radius(0);
+}
+
+.ant-layout {
+    &-header {
+        padding-left: 100px;
+        padding-right: 0;
+        text-align: center;
+
+        @media (max-width: 1000px) {
+            text-align: left;
+        }
+    }
+
+    &-content {
+        &.editor-content {
+            overflow-x: auto !important;
+            overflow-y: auto !important;
+        }
+    }
+}
+
+.logo {
+    @include fixed(0, 0, 0, 0);
+    color: $color-dark-foreground;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+//
+// Typography
+//
+
+ul {
+    &.blank {
+        list-style: none;
+    }
+}
+
+.section {
+    padding-bottom: 10px;
+}
+
+//
+// Sidebars
+// 
+.sidebar-left,
+.sidebar-right {
+    border-left: 1px solid $color-border;
+    background: $color-dark-foreground;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.sidebar-left {
+    & {
+        @include flex;
+        @include flex-flow(column);
+        border-right: 1px solid $color-border;
+        background: $color-dark-foreground;
+    }
+
+    .ant-layout-sider-children,
+    .ant-tabs,
+    .ant-tabs-content,
+    .ant-tabs-tabpane,
+    .tab-panel {
+        @include flex;
+        @include flex-flow(column);
+        @include flex-grow(1);
+        min-height: 0;
+    }
+
+    .ant-tabs-tabpane {
+        @include flex-shrink-important(1);
+    }
+}
+
+$toggle-button-top: 72px;
+$toggle-button-offset-left: 10px;
+$toggle-button-offset-right: 27px;
+$sidebar-size: 320px;
+
+.content {
+    .toggle-button-left {
+        & {
+            @include absolute($toggle-button-top, auto, auto, $toggle-button-offset-left);
+        }
+
+        &.visible {
+            left: $sidebar-size + $toggle-button-offset-left;
+        }
+    }
+
+    .toggle-button-right {
+        & {
+            @include absolute($toggle-button-top, $toggle-button-offset-right, auto, auto);
+        }
+
+        &.visible {
+            right: $sidebar-size + $toggle-button-offset-right;
+        }
+    }
+}
+
+//
+// > Properties
+//
+.property {
+    & {
+        margin-bottom: .5rem;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &-label {
+        padding-top: .25rem;
+        padding-right: .5rem;
+    }
+
+    &-value {
+        .ant-select {
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+}
+
+.properties-subsection {
+    & {
+        margin-bottom: 1rem;
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+}
+
+//
+// > Menu Items
+//
+.menu {
+    &-separator {
+        @include opacity(.8);
+        display: inline-block;
+        border: 0;
+        background: $color-dark-foreground;
+        height: 1rem;
+        margin-right: .5rem;
+        margin-left: .5rem;
+        width: 1px;
+    }
+
+    &-item,
+    &-item > button {
+        & {
+            @include opacity(.8);
+            color: $color-dark-foreground !important;
+            border: 0;
+            background: transparent !important;
+            height: 60px;
+        }
+
+        &:hover {
+            @include opacity(1);
+        }
+
+        &:disabled {
+            @include opacity(.4);
+        }
+    }
+}
