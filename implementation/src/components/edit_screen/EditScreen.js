@@ -26,10 +26,8 @@ class EditScreen extends Component {
         // Update the database
         console.log("ID:", this.props.id);
         this.props.firestore.collection('wireframes').doc(this.props.id).update({
-            // components: this.props.wireframe.components,
-            // zoomPercent:this.props.wireframe.zoomPercent,
-            // name: this.props.wireframe.name,
-            wireframe: this.props.wireframe,
+            components: this.props.wireframe.components,
+            name: this.props.wireframe.name,
         });
         return;
 
@@ -49,7 +47,6 @@ class EditScreen extends Component {
 
         return (
             <div className="dashboard">
-                {/* Create 3 sections and each of them will be distributed into colums 3-6-3. */}
                 <div className="row">
                     <div className="col s3 center">
                         <div className="card row card-content text-darken-3 item-card">
@@ -62,7 +59,7 @@ class EditScreen extends Component {
                     </div>
 
                     <div className="col s6 center">
-                        <CanvasColumn />
+                        <CanvasColumn wireframe={this.props.wireframe}/>
                     </div>
 
                     <div className="col s3 center">

@@ -46,6 +46,7 @@ class ControlColumn extends React.Component {
                         <span class="card-title center">
                             <strong>Textfield</strong>
                         </span>
+                        <br />
                     </div>
                 </div>
             </div>
