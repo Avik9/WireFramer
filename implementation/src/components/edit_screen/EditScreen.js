@@ -7,9 +7,6 @@ import CanvasColumn from './CanvasColumn'
 import PropertiesColumn from './PropertiesColumn'
 import ControlColumn from './ControlColumn'
 
-// var zoomIn = require('./../../images/Zoom_In.png');
-// var zoomOut = require('./../../images/Zoom_Out.jpg');
-
 class EditScreen extends Component {
 
     zoomIn = () => {
@@ -27,10 +24,12 @@ class EditScreen extends Component {
 
     saveFrame = () => {
         // Update the database
-        console.log("ID:", this.props.wireframe.id);
-        this.props.firestore.collection('wireframes').doc(this.props.wireframe.id).update({
-            components: this.props.wireframe.components,
-            zoomPercent:this.props.wireframe.zoomPercent,
+        console.log("ID:", this.props.id);
+        this.props.firestore.collection('wireframes').doc(this.props.id).update({
+            // components: this.props.wireframe.components,
+            // zoomPercent:this.props.wireframe.zoomPercent,
+            // name: this.props.wireframe.name,
+            wireframe: this.props.wireframe,
         });
         return;
 
@@ -46,8 +45,7 @@ class EditScreen extends Component {
             return <Redirect to="/login" />;
         }
 
-        const wireframe = this.props.wireframe;
-        console.log("EditScreen: wireframe.id " + wireframe.id);
+        console.log("EditScreen: wireframe.id " + this.props.id);
 
         return (
             <div className="dashboard">
@@ -55,10 +53,10 @@ class EditScreen extends Component {
                 <div className="row">
                     <div className="col s3 center">
                         <div className="card row card-content text-darken-3 item-card">
-                            <span className="col s3 center edit_buttons" onClick={this.zoomIn}><i class="material-icons">zoom_in</i></span>
-                            <span className="col s3 center edit_buttons" onClick={this.zoomOut}><i class="material-icons">zoom_out</i></span>
-                            <span className="col s3 center edit_buttons" onClick={this.saveFrame}>Save</span>
-                            <span className="col s3 center edit_buttons" onClick={this.closeFrame}>Close</span>
+                            <span className="col s3 center edit_buttons" onClick={() => this.zoomIn()}><i class="material-icons">zoom_in</i></span>
+                            <span className="col s3 center edit_buttons" onClick={() => this.zoomOut()}><i class="material-icons">zoom_out</i></span>
+                            <span className="col s3 center edit_buttons" onClick={() => this.saveFrame()}>Save</span>
+                            <span className="col s3 center edit_buttons" onClick={() => this.closeFrame()}>Close</span>
                         </div>
                         <ControlColumn />
                     </div>
@@ -84,6 +82,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         wireframe: wireframe,
         auth: state.firebase.auth,
+        id: id
     };
 };
 
