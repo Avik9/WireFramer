@@ -3,6 +3,7 @@ var sampleContainer = require('./../../images/sampleContainer.png');
 var sampleLabel = require('./../../images/sampleLabel.png');
 var sampleTextfield = require('./../../images/sampleTextfield.png');
 var sampleButton = require('./../../images/sampleButton.png');
+
 class ControlColumn extends React.Component {
 
     render() {

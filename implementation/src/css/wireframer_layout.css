@@ -57,9 +57,11 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   background-color: transparent;
 }
 
-.custom_container {
+/* .custom_container {
   border: 2px solid black;
   height: 200px;
   width: 100px;
   position: absolute;
-}
+  color: #ec407a;
+  background-color: aqua;
+} */
