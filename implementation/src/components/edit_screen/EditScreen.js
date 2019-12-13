@@ -7,6 +7,12 @@ import CanvasColumn from './CanvasColumn'
 import PropertiesColumn from './PropertiesColumn'
 import ControlColumn from './ControlColumn'
 
+// import customTextfield from './../customComponents/customTextfield.js'
+// import customLabel from './../customComponents/customLabel.js'
+// import customButton from './../customComponents/customButton.js'
+// import customContainer from './../customComponents/customContainer.js'
+
+
 class EditScreen extends Component {
 
     zoomIn = () => {
@@ -27,7 +33,8 @@ class EditScreen extends Component {
         console.log("ID:", this.props.id);
         this.props.firestore.collection('wireframes').doc(this.props.id).update({
             components: this.props.wireframe.components,
-            name: this.props.wireframe.name,
+            name: this.props.wireframe.name === '' ? "(No Name)" : this.props.wireframe.name,
+            zoomPercent: this.props.wireframe.zoomPercent,
         });
         return;
 

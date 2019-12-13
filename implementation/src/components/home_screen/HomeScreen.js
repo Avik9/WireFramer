@@ -29,8 +29,10 @@ class HomeScreen extends Component {
     };
 
     deleteList = (e, listId) => {
+        console.log("Delete list:", listId);
         this.props.firestore.collection('wireframes').doc(listId).delete();
         e.preventDefault();
+        e.stopPropagation();
         return;
     }
 
