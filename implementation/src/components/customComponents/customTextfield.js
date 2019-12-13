@@ -2,7 +2,18 @@ import React from 'react';
 import { Rnd } from "react-rnd";
 
 class CustomTextfield extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        console.log(this.props.component);
+    }
+
     render() {
+        const textfieldStyle = {
+            background: "white",
+        }
+
         return (
             <div>
                 <Rnd default={{
@@ -11,9 +22,9 @@ class CustomTextfield extends React.Component {
                     width: 320,
                     height: 200,
                 }}>
-                    <div>
-                        <input class="active center custom_container" type="text" placeholder="Input" defaultValue="Avik Kadakia" />
-                        <span>Avik Kadakia</span>
+                    <div style={textfieldStyle}>
+                        
+                        <input class="active center" type="text" placeholder="Input" />
                     </div>
                 </Rnd>
             </div>

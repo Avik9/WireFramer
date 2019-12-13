@@ -15,6 +15,14 @@ import ControlColumn from './ControlColumn'
 
 class EditScreen extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentComponent: null,
+        }
+    }
+
     zoomIn = () => {
         this.props.wireframe.zoomPercent *= 2;
         console.log("New zoomPercent: " + this.props.wireframe.zoomPercent);
@@ -40,6 +48,21 @@ class EditScreen extends Component {
 
     }
 
+    setCurrentComponent = (comp) => {
+        this.setState(
+            {
+                currentComponent: comp
+            });
+    }
+
+    setCreateComponent = (comp) => {
+        // if(comp === "customButton")
+        this.setState(
+            {
+                currentComponent: comp
+            });
+    }
+
     closeFrame = () => {
         this.props.history.push('/');
         return;
@@ -62,15 +85,15 @@ class EditScreen extends Component {
                             <span className="col s3 center edit_buttons" onClick={() => this.saveFrame()}>Save</span>
                             <span className="col s3 center edit_buttons" onClick={() => this.closeFrame()}>Close</span>
                         </div>
-                        <ControlColumn />
+                        <ControlColumn createComponent={this.setCreateComponent}/>
                     </div>
 
                     <div className="col s6 center">
-                        <CanvasColumn wireframe={this.props.wireframe}/>
+                        <CanvasColumn wireframe={this.props.wireframe} setCurrentComponent={this.setCurrentComponent}/>
                     </div>
 
                     <div className="col s3 center">
-                        <PropertiesColumn wireframe={this.props.wireframe} component={this.props.wireframe.components[1]}/>
+                        <PropertiesColumn wireframe={this.props.wireframe} component={this.props.wireframe.components[1]}/> {/* this.state.currentComponent */}
                     </div>
                 </div>
             </div>

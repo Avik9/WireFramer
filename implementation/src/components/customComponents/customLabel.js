@@ -11,8 +11,7 @@ class CustomLabel extends React.Component {
                     width: 320,
                     height: 200,
                 }}>
-                    <input class="active center" type="text" placeholder="Input" defaultValue="Avik Kadakia" />
-                    <span>Avik Kadakia</span>
+                    <input class="active center" type="text" placeholder="Input" defaultValue="Prompt for Input:" />
                 </Rnd>
             </div>
         );
