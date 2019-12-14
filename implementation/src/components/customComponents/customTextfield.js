@@ -22,9 +22,8 @@ class CustomTextfield extends React.Component {
                     width: 320,
                     height: 200,
                 }}>
-                    <div style={textfieldStyle}>
-                        
-                        <input class="active center" type="text" placeholder="Input" />
+                    <div style={textfieldStyle} onClick={() => this.props.setCurrentComponent(this.props.component)} onBlur={() => this.props.setCurrentComponent()}>
+                        <input className="active center" type="text" placeholder="Input" />
                     </div>
                 </Rnd>
             </div>

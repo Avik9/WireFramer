@@ -16,10 +16,10 @@ class CanvasColumn extends React.Component {
         return (
             <div className="list_item_card_toolbar">
                 {components && components.map(component => 
-                component.type === "customButton" ? <CustomButton key={component.key} component={component} /> :
-                component.type === "customLabel" ? <CustomLabel key={component.key} component={component} /> :
-                component.type === "customContainer" ? <CustomContainer key={component.key} component={component} /> :
-                component.type === "customTextField" ? <CustomTextfield key={component.key} component={component} /> : null
+                component.type === "customButton" ? <CustomButton key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
+                component.type === "customLabel" ? <CustomLabel key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
+                component.type === "customContainer" ? <CustomContainer key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
+                component.type === "customTextField" ? <CustomTextfield key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> : null
                 )}
             </div>
         );

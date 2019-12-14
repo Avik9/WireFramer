@@ -21,7 +21,9 @@ class CustomButton extends React.Component {
                 width: 100,
                 height: 27.5,
             }}>
-                <div style={buttonStyle}> Submit </div>
+                <div style={buttonStyle} onClick={() => this.props.setCurrentComponent(this.props.component)} onBlur={() => this.props.setCurrentComponent()}>
+                    Submit
+                </div>
             </Rnd>
         );
     }

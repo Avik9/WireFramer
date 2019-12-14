@@ -12,14 +12,18 @@ class CustomContainer extends React.Component {
         }
 
         return (
-            <div>
-                <Rnd default={{
-                    x: 100,
-                    y: 100,
-                    width: 320,
-                    height: 200,
-                }} style={containerStyle} />
-            </div>
+            
+            <Rnd default={{
+                x: 100,
+                y: 100,
+                width: 320,
+                height: 200,
+            }} style={containerStyle}>
+                {console.log("CustomContainer: ")}
+                {console.log(this.props.component)}
+                <div onClick={() => this.props.setCurrentComponent(this.props.component)} onBlur={() => this.props.setCurrentComponent()} />
+
+            </Rnd>
         );
     }
 }

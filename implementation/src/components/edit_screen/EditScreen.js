@@ -19,7 +19,7 @@ class EditScreen extends Component {
         super(props);
 
         this.state = {
-            currentComponent: null,
+            currentComponent: [],
         }
     }
 
@@ -49,10 +49,19 @@ class EditScreen extends Component {
     }
 
     setCurrentComponent = (comp) => {
-        this.setState(
-            {
-                currentComponent: comp
-            });
+        comp = comp ? comp : {
+            text: "",
+            fontSize: "",
+            backgroundColor: "",
+            borderColor: "",
+            fontColor: "",
+            borderThickness: "",
+            borderRadius: "",
+        }
+
+        this.setState({
+            currentComponent: comp
+        });
     }
 
     setCreateComponent = (comp) => {
@@ -80,8 +89,8 @@ class EditScreen extends Component {
                 <div className="row">
                     <div className="col s3 center">
                         <div className="card row card-content text-darken-3 item-card">
-                            <span className="col s3 center edit_buttons" onClick={() => this.zoomIn()}><i class="material-icons">zoom_in</i></span>
-                            <span className="col s3 center edit_buttons" onClick={() => this.zoomOut()}><i class="material-icons">zoom_out</i></span>
+                            <span className="col s3 center edit_buttons" onClick={() => this.zoomIn()}><i className="material-icons">zoom_in</i></span>
+                            <span className="col s3 center edit_buttons" onClick={() => this.zoomOut()}><i className="material-icons">zoom_out</i></span>
                             <span className="col s3 center edit_buttons" onClick={() => this.saveFrame()}>Save</span>
                             <span className="col s3 center edit_buttons" onClick={() => this.closeFrame()}>Close</span>
                         </div>
@@ -93,7 +102,7 @@ class EditScreen extends Component {
                     </div>
 
                     <div className="col s3 center">
-                        <PropertiesColumn wireframe={this.props.wireframe} component={this.props.wireframe.components[1]}/> {/* this.state.currentComponent */}
+                        <PropertiesColumn wireframe={this.props.wireframe} component={this.state.currentComponent}/> {/* this.props.wireframe.components[1] this.state.currentComponent*/}
                     </div>
                 </div>
             </div>
