@@ -66,7 +66,6 @@ class PropertiesColumn extends React.Component {
                     <span className="card-title center">Name:</span>
                     <input className="active center" type="text" onBlur={this.changeName} defaultValue={this.props.wireframe.name} ref="name"/>
                     <span className="card-title center">Properties</span>
-                    {/* {console.log(component)} */}
                     <input className="active center" type="text" onBlur={this.changeText} defaultValue={component.text} ref="text"/>
                     {this.props.component.fontSize !== -1 && <span>Font Size: <input className="active center" type="number" onChange={this.changeFontSize} defaultValue={component.fontSize} ref="fontSize"/></span>}
                     <span>Background Color: <br /><input className="active center" type="color" onChange={this.changeBackgroundColor} defaultValue={component.backgroundColor} ref="backgroundColor"/></span>

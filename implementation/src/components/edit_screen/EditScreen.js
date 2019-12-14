@@ -45,6 +45,7 @@ class EditScreen extends Component {
 
     setCurrentComponent = (comp) => {
         comp = comp ? comp : {
+            key: this.props.wireframe.components.length + 1,
             text: "",
             fontSize: "",
             backgroundColor: "",
@@ -59,14 +60,6 @@ class EditScreen extends Component {
         });
     }
 
-    setCreateComponent = (comp) => {
-        // if(comp === "customButton")
-        this.setState(
-            {
-                currentComponent: comp
-            });
-    }
-
     closeFrame = () => {
         this.props.history.push('/');
         return;
@@ -76,6 +69,8 @@ class EditScreen extends Component {
 
         var element = {}
         element.type = item;
+        element.x = 50;
+        element.y = 50;
 
         this.props.wireframe.components.push(element);
 
@@ -99,7 +94,7 @@ class EditScreen extends Component {
                             <span className="col s3 center edit_buttons" onClick={() => this.saveFrame()}>Save</span>
                             <span className="col s3 center edit_buttons" onClick={() => this.closeFrame()}>Close</span>
                         </div>
-                        <ControlColumn createComponent={this.setCreateComponent} addElement={this.addElement}/>
+                        <ControlColumn addElement={this.addElement}/>
                     </div>
 
                     <div className="col s6 center">
@@ -116,7 +111,7 @@ class EditScreen extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const { id } = ownProps.match.params; //wireframe;
+    const { id } = ownProps.match.params;
     const { wireframes } = state.firestore.data;
     const wireframe = wireframes ? wireframes[id] : null;
 

@@ -6,7 +6,25 @@ class CustomTextfield extends React.Component {
     constructor(props) {
         super(props);
 
-        console.log(this.props.component);
+        var basicButton = {
+            type: "customTextfield",
+            text: "",
+            fontSize: -1,
+            backgroundColor: "#E6E6E6",
+            borderColor: "#FFFFFF",
+            fontColor: "#FFFFFF",
+            borderThickness: 2,
+            borderRadius: 0,
+            width: 200,
+            height: 150,
+            x: 150,
+            y: 150,
+            placeholder: "Input",
+        };
+
+        this.state = {
+            label: this.props.component.type === "sampleButton" ? basicButton : this.props.component,
+        };
     }
 
     render() {
