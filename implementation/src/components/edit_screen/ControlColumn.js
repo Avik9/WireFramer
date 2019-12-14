@@ -17,7 +17,7 @@ class ControlColumn extends React.Component {
             <div className="card z-depth-0">
                 <div className="card-content grey-text text-darken-3 item-card">
                     <div className="row">
-                        <img className="col s12" src={sampleContainer} alt="sampleContainer" onClick={this.props.addElement("sampleContainer")}/>
+                        <img className="col s12" src={sampleContainer} alt="sampleContainer" onClick={() => this.props.addElement("sampleContainer")}/>
                         <br />
                         <span className="card-title center">
                             <strong>Container</strong>
@@ -25,7 +25,7 @@ class ControlColumn extends React.Component {
 
                         <br /><br />
                         <div className="col s2" />
-                        <img className="col s1 center" style={labelStyle} src={sampleLabel} alt="sampleLabel" onClick={this.props.addElement("sampleLabel")}/>
+                        <img className="col s1 center" style={labelStyle} src={sampleLabel} alt="sampleLabel" onClick={() => this.props.addElement("sampleLabel")}/>
                         <br />
                         <span className="card-title center">
                             <strong>Label</strong>
@@ -34,7 +34,7 @@ class ControlColumn extends React.Component {
                         <br /><br />
 
                         <div className="col s3" />
-                        <img className="col s1 center" style={buttonStyle} src={sampleButton} alt="sampleButton" onClick={this.props.addElement("sampleButton")}/>
+                        <img className="col s1 center" style={buttonStyle} src={sampleButton} alt="sampleButton" onClick={() => this.props.addElement("sampleButton")}/>
                         <br />
                         <span className="card-title center">
                             <strong>Button</strong>
@@ -42,7 +42,7 @@ class ControlColumn extends React.Component {
 
                         <br /><br />
 
-                        <img className="col s12" src={sampleTextfield} alt="sampleTextfield" onClick={this.props.addElement("sampleTextfield")}/>
+                        <img className="col s12" src={sampleTextfield} alt="sampleTextfield" onClick={() => this.props.addElement("sampleTextfield")}/>
                         <br />
                         <span className="card-title center">
                             <strong>Textfield</strong>

@@ -16,10 +16,10 @@ class CanvasColumn extends React.Component {
         return (
             <div className="list_item_card_toolbar">
                 {components && components.map(component => 
-                component.type === "customButton" ? <CustomButton key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
-                component.type === "customLabel" ? <CustomLabel key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
-                component.type === "customContainer" ? <CustomContainer key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
-                component.type === "customTextField" ? <CustomTextfield key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> : null
+                component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
+                component.type === "customLabel" || component.type === "sampleLabel" ? <CustomLabel key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
+                component.type === "customContainer" || component.type === "sampleContainer" ? <CustomContainer key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
+                component.type === "customTextField" || component.type === "sampleTextfield" ? <CustomTextfield key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> : null
                 )}
             </div>
         );

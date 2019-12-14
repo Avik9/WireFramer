@@ -7,11 +7,6 @@ import CanvasColumn from './CanvasColumn'
 import PropertiesColumn from './PropertiesColumn'
 import ControlColumn from './ControlColumn'
 
-// import customTextfield from './../customComponents/customTextfield.js'
-// import customLabel from './../customComponents/customLabel.js'
-// import customButton from './../customComponents/customButton.js'
-// import customContainer from './../customComponents/customContainer.js'
-
 
 class EditScreen extends Component {
 
@@ -77,13 +72,15 @@ class EditScreen extends Component {
         return;
     }
 
-    // addElement = (item) => {
-    //     const x = 
-    //     item === "customButton" ? 5 :
-    //     item === "customLabel" ? 5 :
-    //     item === "customContainer" ? 5 :
-    //     item === "customTextField" ? 5 : null
-    // }
+    addElement = (item) => {
+
+        var element = {}
+        element.type = item;
+
+        this.props.wireframe.components.push(element);
+
+        this.setCurrentComponent(element);
+    }
 
     render() {
         if (!this.props.auth.uid) {
