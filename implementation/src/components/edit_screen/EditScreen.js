@@ -77,6 +77,14 @@ class EditScreen extends Component {
         return;
     }
 
+    // addElement = (item) => {
+    //     const x = 
+    //     item === "customButton" ? 5 :
+    //     item === "customLabel" ? 5 :
+    //     item === "customContainer" ? 5 :
+    //     item === "customTextField" ? 5 : null
+    // }
+
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
@@ -94,7 +102,7 @@ class EditScreen extends Component {
                             <span className="col s3 center edit_buttons" onClick={() => this.saveFrame()}>Save</span>
                             <span className="col s3 center edit_buttons" onClick={() => this.closeFrame()}>Close</span>
                         </div>
-                        <ControlColumn createComponent={this.setCreateComponent}/>
+                        <ControlColumn createComponent={this.setCreateComponent} addElement={this.addElement}/>
                     </div>
 
                     <div className="col s6 center">
