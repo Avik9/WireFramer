@@ -16,10 +16,10 @@ class CanvasColumn extends React.Component {
         return (
             <div className="canvas_column">
                 {components && components.map(component => 
-                component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
-                component.type === "customLabel" || component.type === "sampleLabel" ? <CustomLabel key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
-                component.type === "customContainer" || component.type === "sampleContainer" ? <CustomContainer key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
-                component.type === "customTextField" || component.type === "sampleTextfield" ? <CustomTextfield key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> : null
+                component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent} updateElement={this.props.updateElement}/> :
+                component.type === "customLabel" || component.type === "sampleLabel" ? <CustomLabel key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent} updateElement={this.props.updateElement}/> :
+                component.type === "customContainer" || component.type === "sampleContainer" ? <CustomContainer key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent} updateElement={this.props.updateElement}/> :
+                component.type === "customTextField" || component.type === "sampleTextfield" ? <CustomTextfield key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent} updateElement={this.props.updateElement}/> : null
                 )}
             </div>
         );

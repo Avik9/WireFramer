@@ -13,7 +13,7 @@ class CustomLabel extends React.Component {
             backgroundColor: "white",
             borderColor: "black",
             fontColor: "black",
-            borderThickness: 2,
+            borderWidth: 2,
             borderRadius: 0,
             width: 250,
             height: 50,
@@ -29,7 +29,8 @@ class CustomLabel extends React.Component {
             customStyle = {
                 width: basicLabel.width,
                 height: basicLabel.height,
-                border: basicLabel.borderThickness,
+                borderWidth: basicLabel.borderWidth,
+                borderStyle: "solid",
                 borderRadius: basicLabel.borderRadius,
                 backgroundColor: basicLabel.backgroundColor,
                 borderColor: basicLabel.borderColor,
@@ -47,7 +48,8 @@ class CustomLabel extends React.Component {
             customStyle = {
                 width: this.props.component.width,
                 height: this.props.component.height,
-                border: this.props.component.borderThickness,
+                borderWidth: this.props.component.borderWidth,
+                borderStyle: "solid",
                 borderRadius: this.props.component.borderRadius,
                 backgroundColor: this.props.component.backgroundColor,
                 borderColor: this.props.component.borderColor,
@@ -60,7 +62,8 @@ class CustomLabel extends React.Component {
                 labelStyle: customStyle,
             };
         }
-        
+
+        this.props.updateElement(this.props.component, this.state.label);
     }
 
     render() {
@@ -76,7 +79,7 @@ class CustomLabel extends React.Component {
                 className="active center" 
                 type="text" 
                 onClick={() => this.props.setCurrentComponent(this.props.component)} 
-                onBlur={() => this.props.setCurrentComponent()}
+                // onChange={() => this.props.setCurrentComponent()}
                 style={this.state.labelStyle}
                 >
                 {this.state.label.text}

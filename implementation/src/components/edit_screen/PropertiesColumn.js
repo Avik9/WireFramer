@@ -64,10 +64,10 @@ class PropertiesColumn extends React.Component {
     //     this.setState();
     // }
 
-    // changeBorderThickness = () => {
-    //     // console.log("Old border thickness: " + this.props.component.borderThickness);
-    //     this.props.component.borderThickness = this.refs.borderThickness.value;
-    //     // console.log("New border thickness: " + this.props.component.borderThickness);
+    // changeborderWidth = () => {
+    //     // console.log("Old border thickness: " + this.props.component.borderWidth);
+    //     this.props.component.borderWidth = this.refs.borderWidth.value;
+    //     // console.log("New border thickness: " + this.props.component.borderWidth);
 
     //     this.setState();
     // }
@@ -87,7 +87,7 @@ class PropertiesColumn extends React.Component {
             backgroundColor: "",
             borderColor: "",
             fontColor: "",
-            borderThickness: "",
+            borderWidth: "",
             borderRadius: "",
         }
 
@@ -119,7 +119,7 @@ class PropertiesColumn extends React.Component {
                     <br /><br />
                     <span>Font Color: <br /><input className="active center" type="color" onChange={() => this.props.changeFontColor(component.key, this.refs.fontColor.value)} value={component.fontColor} ref="fontColor"/></span>
                     <br /><br />
-                    <span>Border Thickness: <input className="active center" type="number" onChange={() => this.props.changeBorderThickness(component.key, this.refs.borderThickness.value)} value={component.borderThickness} ref="borderThickness"/></span>
+                    <span>Border Thickness: <input className="active center" type="number" onChange={() => this.props.changeborderWidth(component.key, this.refs.borderWidth.value)} value={component.borderWidth} ref="borderWidth"/></span>
                     <span>Border Radius: <input className="active center" type="number" onChange={() => this.props.changeBorderRadius(component.key, this.refs.borderRadius.value)} value={component.borderRadius} ref="borderRadius"/></span>
                 </div>
             </div>

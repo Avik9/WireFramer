@@ -13,7 +13,7 @@ class CustomContainer extends React.Component {
             backgroundColor: "white",
             borderColor: "black",
             fontColor: "black",
-            borderThickness: 4,
+            borderWidth: 3,
             border: "3pt solid black",
             borderRadius: 0,
             width: 70,
@@ -29,8 +29,9 @@ class CustomContainer extends React.Component {
             customStyle = {
                 width: basicContainer.width,
                 height: basicContainer.height,
-                border: basicContainer.border,
+                borderWidth: basicContainer.borderWidth,
                 borderRadius: basicContainer.borderRadius,
+                borderStyle: "solid",
                 backgroundColor: basicContainer.backgroundColor,
                 borderColor: basicContainer.borderColor,
                 fontColor: basicContainer.fontColor,
@@ -47,11 +48,12 @@ class CustomContainer extends React.Component {
             customStyle = {
                 width: this.props.component.width,
                 height: this.props.component.height,
-                border: this.props.component.borderThickness,
+                borderWidth: this.props.component.borderWidth,
                 borderRadius: this.props.component.borderRadius,
                 backgroundColor: this.props.component.backgroundColor,
                 borderColor: this.props.component.borderColor,
                 fontColor: this.props.component.fontColor,
+                borderStyle: "solid",
                 fontSize: this.props.component.fontSize,
             }
 
@@ -60,6 +62,8 @@ class CustomContainer extends React.Component {
                 containerStyle: customStyle,
             };
         }
+
+        this.props.updateElement(this.props.component, this.state.container);
     }
 
     render() {
@@ -74,7 +78,7 @@ class CustomContainer extends React.Component {
             }}
                 bounds=".canvas_column"
                 onClick={() => this.props.setCurrentComponent(this.props.component)} 
-                onBlur={() => this.props.setCurrentComponent()} 
+                // onChange={() => this.props.setCurrentComponent()} 
                 style={this.state.containerStyle}
 
             />

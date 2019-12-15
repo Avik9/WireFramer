@@ -22,6 +22,9 @@ class EditScreen extends Component {
     zoomIn = () => {
         this.props.wireframe.zoomPercent *= 2;
         console.log("New zoomPercent: " + this.props.wireframe.zoomPercent);
+        document.getElementsByClassName("canvas_column").style = {
+            // transform: scale(this.props.wireframe.zoomPercent/100),
+        }
         return;
 
     }
@@ -52,7 +55,7 @@ class EditScreen extends Component {
             backgroundColor: "",
             borderColor: "",
             fontColor: "",
-            borderThickness: "",
+            borderWidth: "",
             borderRadius: "",
         }
 
@@ -91,7 +94,7 @@ class EditScreen extends Component {
 
     changeFontSize = (key, value) => {
         // console.log("Old font size: " + this.props.wireframe.components[key].fontSize);
-        this.props.wireframe.components[key].fontSize = value;
+        this.props.wireframe.components[key].fontSize = parseInt(value);
         // console.log("New font size: " + this.props.wireframe.components[key].fontSize);
 
         this.setState({
@@ -133,10 +136,10 @@ class EditScreen extends Component {
         });
     }
 
-    changeBorderThickness = (key, value) => {
-        // console.log("Old border thickness: " + this.props.wireframe.components[key].borderThickness);
-        this.props.wireframe.components[key].borderThickness = value;
-        // console.log("New border thickness: " + this.props.wireframe.components[key].borderThickness);
+    changeborderWidth = (key, value) => {
+        // console.log("Old border thickness: " + this.props.wireframe.components[key].borderWidth);
+        this.props.wireframe.components[key].borderWidth = parseInt(value);
+        // console.log("New border thickness: " + this.props.wireframe.components[key].borderWidth);
 
         this.setState({
             wireframe: this.props.wireframe,
@@ -146,13 +149,19 @@ class EditScreen extends Component {
 
     changeBorderRadius = (key, value) => {
         // console.log("Old border radius: " + this.props.wireframe.components[key].borderRadius);
-        this.props.wireframe.components[key].borderRadius = value;
+        this.props.wireframe.components[key].borderRadius = parseInt(value);
         // console.log("New border radius: " + this.props.wireframe.components[key].borderRadius);
 
         this.setState({
             wireframe: this.props.wireframe,
             currentComponent: this.props.wireframe.components[key],
         });
+    }
+
+    updateElement = (oldElement, newElement) => {
+        var pos = this.state.wireframe.components.indexOf(oldElement);
+        newElement.key = pos;
+        pos ? this.state.wireframe.components.splice(pos, 1, newElement) : console.log("Did not replace " + oldElement + " with " + newElement);
     }
 
     render() {
@@ -181,6 +190,7 @@ class EditScreen extends Component {
                         <CanvasColumn
                             wireframe={this.props.wireframe}
                             setCurrentComponent={this.setCurrentComponent}
+                            updateElement={this.updateElement}
                         />
                     </div>
 
@@ -193,10 +203,10 @@ class EditScreen extends Component {
                             changeBackgroundColor={this.changeBackgroundColor}
                             changeBorderColor={this.changeBorderColor}
                             changeFontColor={this.changeFontColor}
-                            changeBorderThickness={this.changeBorderThickness}
+                            changeborderWidth={this.changeborderWidth}
                             changeBorderRadius={this.changeBorderRadius}
 
-                        /> {/* this.props.wireframe.components[1] this.state.currentComponent*/}
+                        />
                     </div>
                 </div>
             </div>

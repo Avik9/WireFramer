@@ -10,15 +10,15 @@ class CustomTextfield extends React.Component {
             type: "customTextfield",
             text: "",
             fontSize: 12,
-            backgroundColor: "#e6e6e6",
+            backgroundColor: "white",
             borderColor: "black",
-            fontColor: "black",
-            borderThickness: 2,
+            fontColor: "#fbfbfb",
+            borderWidth: 2,
             borderRadius: 0,
-            width: 200,
-            height: 150,
-            x: 150,
-            y: 150,
+            width: 250,
+            height: 50,
+            positionX: 150,
+            positionY: 150,
             placeholder: "Input",
         };
 
@@ -29,14 +29,15 @@ class CustomTextfield extends React.Component {
             customStyle = {
                 width: basicTextfield.width,
                 height: basicTextfield.height,
-                border: basicTextfield.borderThickness,
+                borderStyle: "solid",
+                borderWidth: basicTextfield.borderWidth,
                 borderRadius: basicTextfield.borderRadius,
                 backgroundColor: basicTextfield.backgroundColor,
                 borderColor: basicTextfield.borderColor,
                 fontColor: basicTextfield.fontColor,
                 fontSize: basicTextfield.fontSize,
-                positionX: this.props.component.x,
-                positionY: this.props.component.y,
+                // positionX: basicTextfield.x,
+                // positionY: basicTextfield.y,
             }
 
             this.state = {
@@ -49,41 +50,57 @@ class CustomTextfield extends React.Component {
             customStyle = {
                 width: this.props.component.width,
                 height: this.props.component.height,
-                border: this.props.component.borderThickness,
+                borderWidth: this.props.component.borderWidth,
                 borderRadius: this.props.component.borderRadius,
+                borderStyle: "solid",
                 backgroundColor: this.props.component.backgroundColor,
                 borderColor: this.props.component.borderColor,
                 fontColor: this.props.component.fontColor,
                 fontSize: this.props.component.fontSize,
-                positionX: this.props.component.x,
-                positionY: this.props.component.y,
+                // positionX: this.props.component.x,
+                // positionY: this.props.component.y,
             }
 
             this.state = {
                 textfield: this.props.component,
                 textfieldStyle: customStyle,
+                // width: this.props.component.width,
+                // height: this.props.component.height,
+                // x: customStyle.positionX,
+                // y: customStyle.positionY,
             };
         }
+        this.props.updateElement(this.props.component, this.state.textfield);
     }
 
     render() {
-        const textfieldStyle = {
-            background: "white",
-        }
-
         return (
             <div>
                 <Rnd 
                     default={{
-                        x: this.state.textfieldStyle.positionX,
-                        y: this.state.textfieldStyle.positionY,
-                        width: this.state.textfieldStyle.width,
-                        height: this.state.textfieldStyle.height,
+                        x: this.state.textfield.positionX,
+                        y: this.state.textfield.positionY,
+                        width: this.state.textfield.width,
+                        height: this.state.textfield.height,
                     }}
                     bounds=".canvas_column"
-                    style={textfieldStyle} 
+                    style={this.state.textfieldStyle} 
                     onClick={() => this.props.setCurrentComponent(this.props.component)} 
-                    onBlur={() => this.props.setCurrentComponent()}>
+                    // onChange={() => this.props.setCurrentComponent()}
+                    // onResizeStop={(e, direction, ref, delta, position) => {
+                    //     this.setState({
+                    //       width: parseInt(ref.style.width),
+                    //       height: parseInt(ref.style.height),
+                    //       ...position
+                    //     });}
+                    // }
+                    // onDragStop={(e, d) => {
+                    //     this.setState({ 
+                    //         x: parseInt(d.x), 
+                    //         y: parseInt(d.y),
+                    //     });
+                    //   }}
+                >
                     {this.state.textfield.text}
                 </Rnd>
             </div>

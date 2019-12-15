@@ -13,7 +13,7 @@ class CustomButton extends React.Component {
             backgroundColor: "#e6e6e6",
             borderColor: "#ffffff",
             fontColor: "#ffffff",
-            borderThickness: 1.5,
+            borderWidth: 1.5,
             borderRadius: 5,
             width: 100,
             height: 27.5,
@@ -28,7 +28,7 @@ class CustomButton extends React.Component {
             customStyle = {
                 width: 100,
                 height: 27.5,
-                border: "1.5 solid black",
+                borderWidth: 1.5,
                 borderRadius: 5,
                 backgroundColor: "#e6e6e6",
                 borderColor: "#ffffff",
@@ -36,6 +36,7 @@ class CustomButton extends React.Component {
                 fontSize: 12,
                 positionX: 50,
                 positionY: 50,
+                borderStyle: "solid",
             }
 
             this.state = {
@@ -48,8 +49,9 @@ class CustomButton extends React.Component {
             customStyle = {
                 width: this.props.component.width,
                 height: this.props.component.height,
-                border: this.props.component.borderThickness,
+                borderWidth: this.props.component.borderWidth,
                 borderRadius: this.props.component.borderRadius,
+                borderStyle: "solid",
                 backgroundColor: this.props.component.backgroundColor,
                 borderColor: this.props.component.borderColor,
                 fontColor: this.props.component.fontColor,
@@ -63,6 +65,8 @@ class CustomButton extends React.Component {
                 buttonStyle: customStyle,
             };
         }
+        this.props.updateElement(this.props.component, this.state.button);
+
     }
 
     render() {
@@ -78,7 +82,8 @@ class CustomButton extends React.Component {
                 bounds=".canvas_column"
                 style={this.state.buttonStyle} 
                 onClick={() => this.props.setCurrentComponent(this.props.component)} 
-                onBlur={() => this.props.setCurrentComponent()}>
+                // onChange={() => this.props.setCurrentComponent()}
+                >
                 
                 {this.state.button.text} 
             </Rnd>

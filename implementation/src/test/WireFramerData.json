@@ -19,7 +19,7 @@
                     "backgroundColor": "#ffffff",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -35,7 +35,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -51,7 +51,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -67,7 +67,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -82,7 +82,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 }
             ]
@@ -106,7 +106,7 @@
                     "backgroundColor": "#ffffff",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -122,7 +122,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -138,7 +138,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -154,7 +154,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -169,7 +169,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 }
             ]
@@ -193,7 +193,7 @@
                     "backgroundColor": "#ffffff",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -209,7 +209,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -225,7 +225,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -241,7 +241,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -256,7 +256,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 }
             ]
@@ -280,7 +280,7 @@
                     "backgroundColor": "#ffffff",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -296,7 +296,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -312,7 +312,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -328,7 +328,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -344,7 +344,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -360,7 +360,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 },
                 {
@@ -376,7 +376,7 @@
                     "backgroundColor": "#d6d6d6",
                     "borderColor": "#000000",
                     "fontColor": "#000000",
-                    "borderThickness": 2,
+                    "borderWidth": 2,
                     "borderRadius": 2
                 }
             ]
