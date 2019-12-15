@@ -20,16 +20,20 @@ class EditScreen extends Component {
     }
 
     zoomIn = () => {
-        this.props.wireframe.zoomPercent = parseInt(this.props.wireframe.zoomPercent * 2);
+        this.props.wireframe.zoomPercent *= 2;
+        this.setState({
+            wireframe: this.props.wireframe
+        });
         console.log("New zoomPercent: " + this.props.wireframe.zoomPercent);
-        return;
 
     }
 
     zoomOut = () => {
-        this.props.wireframe.zoomPercent = parseInt(this.props.wireframe.zoomPercent / 2);
+        this.props.wireframe.zoomPercent /= 2;
+        this.setState({
+            wireframe: this.props.wireframe
+        });
         console.log("New zoomPercent: " + this.props.wireframe.zoomPercent);
-        return;
     }
 
     saveFrame = () => {
@@ -44,21 +48,6 @@ class EditScreen extends Component {
     }
 
     setCurrentComponent = (comp) => {
-        // comp = comp ? comp : {
-        //     key: this.props.wireframe.components.length + 1,
-        //     text: "",
-        //     fontSize: "",
-        //     backgroundColor: "",
-        //     borderColor: "",
-        //     fontColor: "",
-        //     borderWidth: "",
-        //     borderRadius: "",
-        // }
-
-        // if(comp === "")
-        // {
-        //     e.stopPropagation();
-        // }
 
         console.log("Setting currentComponent as: ");
         console.log(comp)
@@ -74,80 +63,80 @@ class EditScreen extends Component {
     }
 
     addElement = (item) => {
-        var element;
-        if (item === "sampleTextfield")
-        {
-            element = {
-                type: "customTextfield",
-                text: "",
-                fontSize: 12,
-                backgroundColor: "white",
-                borderColor: "black",
-                fontColor: "#fbfbfb",
-                borderWidth: 2,
-                borderRadius: 0,
-                width: 250,
-                height: 50,
-                positionX: 150,
-                positionY: 150,
-                placeholder: "Input",
-            };
-        }
-        else if(item === "sampleContainer")
-        {
-            element = {
-                type: "customContainer",
-                text: "",
-                fontSize: -1,
-                backgroundColor: "white",
-                borderColor: "black",
-                fontColor: "black",
-                borderWidth: 3,
-                // border: "3pt solid black",
-                borderRadius: 0,
-                width: 70,
-                height: 50,
-                x: 50,
-                y: 50,
-            };
-        }
-        else if(item === "sampleLabel")
-        {
-            element = {
-                type: "customLabel",
-                text: "Prompt for Input: ",
-                fontSize: 12,
-                backgroundColor: "white",
-                borderColor: "black",
-                fontColor: "black",
-                borderWidth: 2,
-                borderRadius: 0,
-                width: 250,
-                height: 50,
-                positionX: 150,
-                positionY: 150,
-                placeholder: "Label",
-            };
-        }
-        else if(item === "sampleButton")
-        {
-            element = {
-                width: 100,
-                height: 27.5,
-                borderWidth: 1.5,
-                borderRadius: 5,
-                backgroundColor: "#e6e6e6",
-                borderColor: "#ffffff",
-                fontColor: "#ffffff",
-                fontSize: 12,
-                positionX: 50,
-                positionY: 50,
-                borderStyle: "solid",
-            }
-        }
-        else {
-            console.log("Creating a null element");
-        }
+        var element = {
+            key: this.props.wireframe.components.length,
+            type: item,
+            width: 200,
+            height: 100,
+            positionX: 0,
+            positionY: 0,
+            text: "New" + item,
+            fontSize: -1,
+            background: item === "customButton" ? "#d6d6d6" : item === "customLabel" ? "#ffffff" : "#ffffff",
+            borderColor: item === "customLabel" ? "#ffffff" : "#000000",
+            fontColor: "#000000",
+            borderWidth: 2,
+            borderRadius: 3,
+        };
+        // if (item === "customTextfield")
+        // {
+        //     element = {
+        //         text: "",
+        //         fontSize: 12,
+        //         backgroundColor: "white",
+        //         borderColor: "black",
+        //         fontColor: "#fbfbfb",
+        //         borderWidth: 2,
+        //         borderRadius: 0,
+        //         width: 250,
+        //         height: 50,
+        //         placeholder: "Input",
+        //     };
+        // }
+        // else if(item === "customContainer")
+        // {
+        //     element = {
+        //         text: "",
+        //         fontSize: -1,
+        //         backgroundColor: "white",
+        //         borderColor: "black",
+        //         fontColor: "black",
+        //         borderWidth: 3,
+        //         borderRadius: 0,
+        //         width: 70,
+        //         height: 50,
+        //     };
+        // }
+        // else if(item === "customLabel")
+        // {
+        //     element = {
+        //         type: "customLabel",
+        //         text: "Prompt for Input: ",
+        //         fontSize: 12,
+        //         backgroundColor: "white",
+        //         borderColor: "black",
+        //         fontColor: "black",
+        //         borderWidth: 2,
+        //         borderRadius: 0,
+        //         width: 250,
+        //         height: 50,
+        //         placeholder: "Label",
+        //     };
+        // }
+        // else if(item === "customButton")
+        // {
+        //     element = {
+        //         width: 100,
+        //         height: 27.5,
+        //         borderWidth: 1.5,
+        //         borderRadius: 5,
+        //         backgroundColor: "#e6e6e6",
+        //         borderColor: "#ffffff",
+        //         fontColor: "#ffffff",
+        //         fontSize: 12,
+        //         borderStyle: "solid",
+        //     }
+        // }
 
         this.props.wireframe.components.push(element);
 
@@ -268,6 +257,8 @@ class EditScreen extends Component {
                             wireframe={this.props.wireframe}
                             setCurrentComponent={this.setCurrentComponent}
                             currentComponent={this.state.currentComponent}
+                            zoom={this.props.wireframe.zoomPercent}
+                            keys={[]}
                         />
                     </div>
 

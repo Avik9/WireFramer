@@ -51,6 +51,7 @@ class CustomTextfield extends React.Component {
                         this.props.component.positionX = d.x;
                         this.props.component.positionY = d.y;
                       }}
+                    scale={this.props.zoom}
                     >
                     {this.selected()}
                     {this.props.component.text}

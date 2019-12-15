@@ -50,6 +50,7 @@ class CustomLabel extends React.Component {
                     this.props.component.positionX = d.x;
                     this.props.component.positionY = d.y;
                     }}
+                scale={this.props.zoom}
                 >
                 {this.props.component.text}
                 {this.selected()}

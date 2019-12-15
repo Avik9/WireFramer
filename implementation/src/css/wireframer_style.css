@@ -87,7 +87,12 @@ h5 {
   display: grid;
   border: 3px solid black;
   background-color: white;
+  overflow: scroll;
+
 }
+
+/* .canvas_column_scale {
+} */
 
 .fixed-action-btn.direction-left ul, .fixed-action-btn.direction-right ul {
 	text-align: right;
