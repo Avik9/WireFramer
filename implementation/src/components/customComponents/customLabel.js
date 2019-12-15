@@ -10,9 +10,9 @@ class CustomLabel extends React.Component {
             type: "customLabel",
             text: "Prompt for Input: ",
             fontSize: 12,
-            backgroundColor: "#000000",
-            borderColor: "#FFFFFF",
-            fontColor: "#FFFFFF",
+            backgroundColor: "white",
+            borderColor: "black",
+            fontColor: "black",
             borderThickness: 2,
             borderRadius: 0,
             width: 250,
@@ -65,23 +65,22 @@ class CustomLabel extends React.Component {
 
     render() {
         return (
-            <div>
-                <Rnd default={{
+            <Rnd 
+                default={{
                     x: this.state.label.positionX,
                     y: this.state.label.positionY,
                     width: this.state.label.width,
                     height: this.state.label.height,
-                }}>
-                    <input 
-                        className="active center" 
-                        type="text" 
-                        placeholder={this.state.label.placeholder} 
-                        defaultValue={this.state.label.text} 
-                        onClick={() => this.props.setCurrentComponent(this.props.component)} 
-                        onBlur={() => this.props.setCurrentComponent()}
-                        style={this.state.labelStyle}/>
-                </Rnd>
-            </div>
+                }}
+                bounds=".canvas_column"
+                className="active center" 
+                type="text" 
+                onClick={() => this.props.setCurrentComponent(this.props.component)} 
+                onBlur={() => this.props.setCurrentComponent()}
+                style={this.state.labelStyle}
+                >
+                {this.state.label.text}
+            </Rnd>
         );
     }
 }

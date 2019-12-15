@@ -23,24 +23,24 @@ class CustomButton extends React.Component {
 
         var customStyle = {}
 
-        if (this.props.component.type === "sampleLabel")
+        if (this.props.component.type === "sampleButton")
         {
             customStyle = {
-                width: basicButton.width,
-                height: basicButton.height,
-                border: basicButton.borderThickness,
-                borderRadius: basicButton.borderRadius,
-                backgroundColor: basicButton.backgroundColor,
-                borderColor: basicButton.borderColor,
-                fontColor: basicButton.fontColor,
-                fontSize: basicButton.fontSize,
-                positionX: this.props.component.x,
-                positionY: this.props.component.y,
+                width: 100,
+                height: 27.5,
+                border: "1.5 solid black",
+                borderRadius: 5,
+                backgroundColor: "#e6e6e6",
+                borderColor: "#ffffff",
+                fontColor: "#ffffff",
+                fontSize: 12,
+                positionX: 50,
+                positionY: 50,
             }
 
             this.state = {
-                label: basicButton,
-                labelStyle: customStyle,
+                button: basicButton,
+                buttonStyle: customStyle,
             };
         }
         else
@@ -67,24 +67,20 @@ class CustomButton extends React.Component {
 
     render() {
 
-        // const buttonStyle = {
-        //     width: "100px",
-        //     height: "27.5px",
-        //     border: "1.5px solid black",
-        //     borderRadius: "5px",
-        //     backgroundColor: "#E6E6E6",
-        // }
-
         return (
-            <Rnd default={{
-                x: this.state.button.positionX,
-                y: this.state.button.positionY,
-                width: this.state.button.width,
-                height: this.state.button.height,
-            }}>
-                <div style={this.state.buttonStyle} onClick={() => this.props.setCurrentComponent(this.props.component)} onBlur={() => this.props.setCurrentComponent()}>
-                    {this.state.button.text}
-                </div>
+            <Rnd 
+                default={{
+                    x: this.state.button.positionX,
+                    y: this.state.button.positionY,
+                    width: this.state.button.width,
+                    height: this.state.button.height,
+                }}
+                bounds=".canvas_column"
+                style={this.state.buttonStyle} 
+                onClick={() => this.props.setCurrentComponent(this.props.component)} 
+                onBlur={() => this.props.setCurrentComponent()}>
+                
+                {this.state.button.text} 
             </Rnd>
         );
     }

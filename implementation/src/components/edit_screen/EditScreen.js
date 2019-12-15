@@ -15,6 +15,7 @@ class EditScreen extends Component {
 
         this.state = {
             currentComponent: [],
+            wireframe: this.props.wireframe,
         }
     }
 
@@ -77,6 +78,83 @@ class EditScreen extends Component {
         this.setCurrentComponent(element);
     }
 
+    changeText = (key, value) => {
+        // console.log("Old text: " + this.props.wireframe.components[key].text);
+        this.props.wireframe.components[key].text = value;
+        // console.log("New text: " + this.props.wireframe.components[key].text);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+            currentComponent: this.props.wireframe.components[key],
+        });
+    }
+
+    changeFontSize = (key, value) => {
+        // console.log("Old font size: " + this.props.wireframe.components[key].fontSize);
+        this.props.wireframe.components[key].fontSize = value;
+        // console.log("New font size: " + this.props.wireframe.components[key].fontSize);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+            currentComponent: this.props.wireframe.components[key],
+        });
+    }
+
+    changeBackgroundColor = (key, value) => {
+        // console.log("Old background color: " + this.props.wireframe.components[key].backgroundColor);
+        this.props.wireframe.components[key].backgroundColor = value;
+        // console.log("New background color: " + this.props.wireframe.components[key].backgroundColor);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+            currentComponent: this.props.wireframe.components[key],
+        });
+    }
+
+    changeBorderColor = (key, value) => {
+        // console.log("Old border color: " + this.props.wireframe.components[key].backgroundColor);
+        this.props.wireframe.components[key].borderColor = value;
+        // console.log("New border color: " + this.props.wireframe.components[key].backgroundColor);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+            currentComponent: this.props.wireframe.components[key],
+        });
+    }
+
+    changeFontColor = (key, value) => {
+        // console.log("Old font color: " + this.props.wireframe.components[key].fontColor);
+        this.props.wireframe.components[key].fontColor = value;
+        // console.log("New font color: " + this.props.wireframe.components[key].fontColor);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+            currentComponent: this.props.wireframe.components[key],
+        });
+    }
+
+    changeBorderThickness = (key, value) => {
+        // console.log("Old border thickness: " + this.props.wireframe.components[key].borderThickness);
+        this.props.wireframe.components[key].borderThickness = value;
+        // console.log("New border thickness: " + this.props.wireframe.components[key].borderThickness);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+            currentComponent: this.props.wireframe.components[key],
+        });
+    }
+
+    changeBorderRadius = (key, value) => {
+        // console.log("Old border radius: " + this.props.wireframe.components[key].borderRadius);
+        this.props.wireframe.components[key].borderRadius = value;
+        // console.log("New border radius: " + this.props.wireframe.components[key].borderRadius);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+            currentComponent: this.props.wireframe.components[key],
+        });
+    }
+
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
@@ -94,15 +172,31 @@ class EditScreen extends Component {
                             <span className="col s3 center edit_buttons" onClick={() => this.saveFrame()}>Save</span>
                             <span className="col s3 center edit_buttons" onClick={() => this.closeFrame()}>Close</span>
                         </div>
-                        <ControlColumn addElement={this.addElement}/>
+                        <ControlColumn
+                            addElement={this.addElement}
+                        />
                     </div>
 
                     <div className="col s6 center">
-                        <CanvasColumn wireframe={this.props.wireframe} setCurrentComponent={this.setCurrentComponent}/>
+                        <CanvasColumn
+                            wireframe={this.props.wireframe}
+                            setCurrentComponent={this.setCurrentComponent}
+                        />
                     </div>
 
                     <div className="col s3 center">
-                        <PropertiesColumn wireframe={this.props.wireframe} component={this.state.currentComponent}/> {/* this.props.wireframe.components[1] this.state.currentComponent*/}
+                        <PropertiesColumn
+                            wireframe={this.props.wireframe}
+                            component={this.state.currentComponent}
+                            changeText={this.changeText}
+                            changeFontSize={this.changeFontSize}
+                            changeBackgroundColor={this.changeBackgroundColor}
+                            changeBorderColor={this.changeBorderColor}
+                            changeFontColor={this.changeFontColor}
+                            changeBorderThickness={this.changeBorderThickness}
+                            changeBorderRadius={this.changeBorderRadius}
+
+                        /> {/* this.props.wireframe.components[1] this.state.currentComponent*/}
                     </div>
                 </div>
             </div>

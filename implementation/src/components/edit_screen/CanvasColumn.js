@@ -14,7 +14,7 @@ class CanvasColumn extends React.Component {
 
 
         return (
-            <div className="list_item_card_toolbar">
+            <div className="canvas_column">
                 {components && components.map(component => 
                 component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
                 component.type === "customLabel" || component.type === "sampleLabel" ? <CustomLabel key={component.key} component={component} setCurrentComponent={this.props.setCurrentComponent}/> :
