@@ -25,6 +25,8 @@ class AdminScreen extends React.Component {
     handleReset = () => {
         const fireStore = getFirestore();
 
+        // console.log(JSON.stringify(WireFrameJson));
+
         WireFrameJson.WireFrames.forEach(wireFrameJson => {
             fireStore.collection('wireframes').add({
                 name: wireFrameJson.name,

@@ -2,7 +2,7 @@ import React from 'react';
 
 class PropertiesColumn extends React.Component {
     render() {
-        var component = this.props.component ? this.props.component : {
+        var component = this.props.component !== undefined ? this.props.component : {
             text: "",
             fontSize: "",
             backgroundColor: "",
@@ -40,7 +40,7 @@ class PropertiesColumn extends React.Component {
                     <br /><br />
                     <span>Font Color: <br /><input className="active center" type="color" onChange={() => this.props.changeFontColor(component.key, this.refs.fontColor.value)} value={component.color} ref="fontColor"/></span>
                     <br /><br />
-                    <span>Border Thickness: <input className="active center" type="number" onChange={() => this.props.changeborderWidth(component.key, this.refs.borderWidth.value)} value={component.borderWidth} ref="borderWidth"/></span>
+                    <span>Border Thickness: <input className="active center" type="number" onChange={() => this.props.changeBorderWidth(component.key, this.refs.borderWidth.value)} value={component.borderWidth} ref="borderWidth"/></span>
                     <span>Border Radius: <input className="active center" type="number" onChange={() => this.props.changeBorderRadius(component.key, this.refs.borderRadius.value)} value={component.borderRadius} ref="borderRadius"/></span>
                 </div>
             </div>

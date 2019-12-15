@@ -20,17 +20,14 @@ class EditScreen extends Component {
     }
 
     zoomIn = () => {
-        this.props.wireframe.zoomPercent *= 2;
+        this.props.wireframe.zoomPercent = parseInt(this.props.wireframe.zoomPercent * 2);
         console.log("New zoomPercent: " + this.props.wireframe.zoomPercent);
-        document.getElementsByClassName("canvas_column").style = {
-            // transform: scale(this.props.wireframe.zoomPercent/100),
-        }
         return;
 
     }
 
     zoomOut = () => {
-        this.props.wireframe.zoomPercent /= 2;
+        this.props.wireframe.zoomPercent = parseInt(this.props.wireframe.zoomPercent / 2);
         console.log("New zoomPercent: " + this.props.wireframe.zoomPercent);
         return;
     }
@@ -56,6 +53,11 @@ class EditScreen extends Component {
         //     fontColor: "",
         //     borderWidth: "",
         //     borderRadius: "",
+        // }
+
+        // if(comp === "")
+        // {
+        //     e.stopPropagation();
         // }
 
         console.log("Setting currentComponent as: ");
@@ -217,9 +219,9 @@ class EditScreen extends Component {
         });
     }
 
-    changeborderWidth = (key, value) => {
+    changeBorderWidth = (key, value) => {
         // console.log("Old border thickness: " + this.props.wireframe.components[key].borderWidth);
-        this.props.wireframe.components[key].borderWidth = value;
+        this.props.wireframe.components[key].borderWidth = parseInt(value);
         // console.log("New border thickness: " + this.props.wireframe.components[key].borderWidth);
 
         this.setState({
@@ -279,7 +281,7 @@ class EditScreen extends Component {
                             changeBackgroundColor={this.changeBackgroundColor}
                             changeBorderColor={this.changeBorderColor}
                             changeFontColor={this.changeFontColor}
-                            changeborderWidth={this.changeborderWidth}
+                            changeBorderWidth={this.changeBorderWidth}
                             changeBorderRadius={this.changeBorderRadius}
                         />
                     </div>
