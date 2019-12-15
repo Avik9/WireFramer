@@ -44,20 +44,22 @@ class EditScreen extends Component {
             zoomPercent: this.props.wireframe.zoomPercent,
         });
         return;
-
     }
 
     setCurrentComponent = (comp) => {
-        comp = comp ? comp : {
-            key: this.props.wireframe.components.length + 1,
-            text: "",
-            fontSize: "",
-            backgroundColor: "",
-            borderColor: "",
-            fontColor: "",
-            borderWidth: "",
-            borderRadius: "",
-        }
+        // comp = comp ? comp : {
+        //     key: this.props.wireframe.components.length + 1,
+        //     text: "",
+        //     fontSize: "",
+        //     backgroundColor: "",
+        //     borderColor: "",
+        //     fontColor: "",
+        //     borderWidth: "",
+        //     borderRadius: "",
+        // }
+
+        console.log("Setting currentComponent as: ");
+        console.log(comp)
 
         this.setState({
             currentComponent: comp
@@ -70,15 +72,94 @@ class EditScreen extends Component {
     }
 
     addElement = (item) => {
-
-        var element = {}
-        element.type = item;
-        element.x = 50;
-        element.y = 50;
+        var element;
+        if (item === "sampleTextfield")
+        {
+            element = {
+                type: "customTextfield",
+                text: "",
+                fontSize: 12,
+                backgroundColor: "white",
+                borderColor: "black",
+                fontColor: "#fbfbfb",
+                borderWidth: 2,
+                borderRadius: 0,
+                width: 250,
+                height: 50,
+                positionX: 150,
+                positionY: 150,
+                placeholder: "Input",
+            };
+        }
+        else if(item === "sampleContainer")
+        {
+            element = {
+                type: "customContainer",
+                text: "",
+                fontSize: -1,
+                backgroundColor: "white",
+                borderColor: "black",
+                fontColor: "black",
+                borderWidth: 3,
+                // border: "3pt solid black",
+                borderRadius: 0,
+                width: 70,
+                height: 50,
+                x: 50,
+                y: 50,
+            };
+        }
+        else if(item === "sampleLabel")
+        {
+            element = {
+                type: "customLabel",
+                text: "Prompt for Input: ",
+                fontSize: 12,
+                backgroundColor: "white",
+                borderColor: "black",
+                fontColor: "black",
+                borderWidth: 2,
+                borderRadius: 0,
+                width: 250,
+                height: 50,
+                positionX: 150,
+                positionY: 150,
+                placeholder: "Label",
+            };
+        }
+        else if(item === "sampleButton")
+        {
+            element = {
+                width: 100,
+                height: 27.5,
+                borderWidth: 1.5,
+                borderRadius: 5,
+                backgroundColor: "#e6e6e6",
+                borderColor: "#ffffff",
+                fontColor: "#ffffff",
+                fontSize: 12,
+                positionX: 50,
+                positionY: 50,
+                borderStyle: "solid",
+            }
+        }
+        else {
+            console.log("Creating a null element");
+        }
 
         this.props.wireframe.components.push(element);
 
         this.setCurrentComponent(element);
+    }
+
+    changeName = (value) => {
+        // console.log("Old name: " + this.props.wireframe.name);
+        this.props.wireframe.name = value;
+        // console.log("New name: " + this.props.wireframe.name);
+
+        this.setState({
+            wireframe: this.props.wireframe,
+        });
     }
 
     changeText = (key, value) => {
@@ -138,7 +219,7 @@ class EditScreen extends Component {
 
     changeborderWidth = (key, value) => {
         // console.log("Old border thickness: " + this.props.wireframe.components[key].borderWidth);
-        this.props.wireframe.components[key].borderWidth = parseInt(value);
+        this.props.wireframe.components[key].borderWidth = value;
         // console.log("New border thickness: " + this.props.wireframe.components[key].borderWidth);
 
         this.setState({
@@ -156,12 +237,6 @@ class EditScreen extends Component {
             wireframe: this.props.wireframe,
             currentComponent: this.props.wireframe.components[key],
         });
-    }
-
-    updateElement = (oldElement, newElement) => {
-        var pos = this.state.wireframe.components.indexOf(oldElement);
-        newElement.key = pos;
-        pos ? this.state.wireframe.components.splice(pos, 1, newElement) : console.log("Did not replace " + oldElement + " with " + newElement);
     }
 
     render() {
@@ -190,12 +265,13 @@ class EditScreen extends Component {
                         <CanvasColumn
                             wireframe={this.props.wireframe}
                             setCurrentComponent={this.setCurrentComponent}
-                            updateElement={this.updateElement}
+                            currentComponent={this.state.currentComponent}
                         />
                     </div>
 
                     <div className="col s3 center">
                         <PropertiesColumn
+                            changeName={this.changeName}
                             wireframe={this.props.wireframe}
                             component={this.state.currentComponent}
                             changeText={this.changeText}
@@ -205,7 +281,6 @@ class EditScreen extends Component {
                             changeFontColor={this.changeFontColor}
                             changeborderWidth={this.changeborderWidth}
                             changeBorderRadius={this.changeBorderRadius}
-
                         />
                     </div>
                 </div>

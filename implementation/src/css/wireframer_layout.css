@@ -57,11 +57,31 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   background-color: transparent;
 }
 
-/* .custom_container {
-  border: 2px solid black;
-  height: 200px;
-  width: 100px;
+.selected {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border: 1px solid grey;
   position: absolute;
-  color: #ec407a;
-  background-color: aqua;
-} */
+}
+
+.selected.left {
+  left: -5px;
+}
+
+.selected.middle {
+  left: 50%;
+}
+
+.selected.bottom {
+  bottom: -5px;
+}
+
+.selected.right {
+  right: -5px;
+}
+
+.selected.top {
+  top: -5px;
+}

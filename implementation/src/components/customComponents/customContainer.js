@@ -3,86 +3,57 @@ import { Rnd } from "react-rnd";
 
 class CustomContainer extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        var basicContainer = {
-            type: "customContainer",
-            text: "",
-            fontSize: -1,
-            backgroundColor: "white",
-            borderColor: "black",
-            fontColor: "black",
-            borderWidth: 3,
-            border: "3pt solid black",
-            borderRadius: 0,
-            width: 70,
-            height: 50,
-            x: 50,
-            y: 50,
-        };
-
-        var customStyle = {}
-
-        if (this.props.component.type === "sampleContainer")
+    selected() {
+        if(this.props.currentComponent === this.props.component)
         {
-            customStyle = {
-                width: basicContainer.width,
-                height: basicContainer.height,
-                borderWidth: basicContainer.borderWidth,
-                borderRadius: basicContainer.borderRadius,
-                borderStyle: "solid",
-                backgroundColor: basicContainer.backgroundColor,
-                borderColor: basicContainer.borderColor,
-                fontColor: basicContainer.fontColor,
-                fontSize: basicContainer.fontSize,
-            }
-
-            this.state = {
-                container: basicContainer,
-                containerStyle: customStyle,
-            };
+            return(
+                <div>
+                    <div className="selected top left" />
+                    <div className="selected bottom left" />
+                    <div className="selected top right" />
+                    <div className="selected bottom right" />
+                </div>
+            )
         }
-        else
-        {
-            customStyle = {
-                width: this.props.component.width,
-                height: this.props.component.height,
-                borderWidth: this.props.component.borderWidth,
-                borderRadius: this.props.component.borderRadius,
-                backgroundColor: this.props.component.backgroundColor,
-                borderColor: this.props.component.borderColor,
-                fontColor: this.props.component.fontColor,
-                borderStyle: "solid",
-                fontSize: this.props.component.fontSize,
-            }
-
-            this.state = {
-                container: this.props.component,
-                containerStyle: customStyle,
-            };
+        else{
+            return "";
         }
-
-        this.props.updateElement(this.props.component, this.state.container);
     }
 
     render() {
-
-        return (
-            
+        return (     
             <Rnd default={{
-                x: this.state.container.positionX,
-                y: this.state.container.positionY,
-                width: this.state.container.width,
-                height: this.state.container.height,
+                x: this.props.component.positionX,
+                y: this.props.component.positionY,
+                width: this.props.component.width,
+                height: this.props.component.height,
             }}
                 bounds=".canvas_column"
                 onClick={() => this.props.setCurrentComponent(this.props.component)} 
-                // onChange={() => this.props.setCurrentComponent()} 
-                style={this.state.containerStyle}
-
-            />
+                style={{
+                    width: this.props.component.width,
+                    height: this.props.component.height,
+                    borderWidth: this.props.component.borderWidth,
+                    borderRadius: this.props.component.borderRadius,
+                    backgroundColor: this.props.component.backgroundColor,
+                    borderColor: this.props.component.borderColor,
+                    color: this.props.component.fontColor,
+                    borderStyle: "solid",
+                    fontSize: this.props.component.fontSize,
+                }}
+                onResizeStop={(e, direction, ref, delta, position) => {
+                    this.props.component.width = ref.style.width;
+                    this.props.component.height = ref.style.height;
+                }}
+                onDragStop={(e, d) => {
+                    this.props.component.positionX = d.x;
+                    this.props.component.positionY = d.y;
+                }}
+            >
+                {this.selected()}
+            </Rnd>
         );
+        
     }
 }
 

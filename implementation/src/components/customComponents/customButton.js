@@ -3,89 +3,58 @@ import { Rnd } from "react-rnd";
 
 class CustomButton extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        var basicButton = {
-            type: "customButton",
-            text: "Submit",
-            fontSize: -1,
-            backgroundColor: "#e6e6e6",
-            borderColor: "#ffffff",
-            fontColor: "#ffffff",
-            borderWidth: 1.5,
-            borderRadius: 5,
-            width: 100,
-            height: 27.5,
-            x: 50,
-            y: 50,
-        };
-
-        var customStyle = {}
-
-        if (this.props.component.type === "sampleButton")
+    selected() {
+        if(this.props.currentComponent === this.props.component)
         {
-            customStyle = {
-                width: 100,
-                height: 27.5,
-                borderWidth: 1.5,
-                borderRadius: 5,
-                backgroundColor: "#e6e6e6",
-                borderColor: "#ffffff",
-                fontColor: "#ffffff",
-                fontSize: 12,
-                positionX: 50,
-                positionY: 50,
-                borderStyle: "solid",
-            }
-
-            this.state = {
-                button: basicButton,
-                buttonStyle: customStyle,
-            };
+            return(
+                <div>
+                    <div className="selected top left" />
+                    <div className="selected bottom left" />
+                    <div className="selected top right" />
+                    <div className="selected bottom right" />
+                </div>
+            )
         }
-        else
-        {
-            customStyle = {
-                width: this.props.component.width,
-                height: this.props.component.height,
-                borderWidth: this.props.component.borderWidth,
-                borderRadius: this.props.component.borderRadius,
-                borderStyle: "solid",
-                backgroundColor: this.props.component.backgroundColor,
-                borderColor: this.props.component.borderColor,
-                fontColor: this.props.component.fontColor,
-                fontSize: this.props.component.fontSize,
-                positionX: this.props.component.x,
-                positionY: this.props.component.y,
-            }
-
-            this.state = {
-                button: this.props.component,
-                buttonStyle: customStyle,
-            };
+        else{
+            return "";
         }
-        this.props.updateElement(this.props.component, this.state.button);
-
     }
 
     render() {
-
         return (
             <Rnd 
                 default={{
-                    x: this.state.button.positionX,
-                    y: this.state.button.positionY,
-                    width: this.state.button.width,
-                    height: this.state.button.height,
+                    x: this.props.component.positionX,
+                    y: this.props.component.positionY,
+                    width: this.props.component.width,
+                    height: this.props.component.height,
                 }}
                 bounds=".canvas_column"
-                style={this.state.buttonStyle} 
+                style={{
+                    width: this.props.component.width,
+                    height: this.props.component.height,
+                    borderWidth: this.props.component.borderWidth,
+                    borderRadius: this.props.component.borderRadius,
+                    borderStyle: "solid",
+                    backgroundColor: this.props.component.backgroundColor,
+                    borderColor: this.props.component.borderColor,
+                    color: this.props.component.fontColor,
+                    fontSize: this.props.component.fontSize,
+                    positionX: this.props.component.x,
+                    positionY: this.props.component.y,
+                }} 
                 onClick={() => this.props.setCurrentComponent(this.props.component)} 
-                // onChange={() => this.props.setCurrentComponent()}
-                >
-                
-                {this.state.button.text} 
+                onResizeStop={(e, direction, ref, delta, position) => {
+                    this.props.component.width = ref.style.width;
+                    this.props.component.height = ref.style.height;
+                }}
+                onDragStop={(e, d) => {
+                    this.props.component.positionX = d.x;
+                    this.props.component.positionY = d.y;
+                    }}
+            >
+                {this.props.component.text} 
+                {this.selected()}
             </Rnd>
         );
     }
