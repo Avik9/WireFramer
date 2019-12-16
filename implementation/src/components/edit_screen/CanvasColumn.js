@@ -24,7 +24,11 @@ class CanvasColumn extends React.Component {
 
 
         return (
-                <div className="canvas_column" onClick={(e) => this.props.setCurrentComponent(e, "")}>
+                <div className="canvas_column" onClick={(e) => this.props.setCurrentComponent(e, "")} style={
+                    {
+                        height: this.props.wireframe.height.toString() + "px",
+                        width: this.props.wireframe.width.toString() + "px",
+                    }}>
                     <div className="canvas_column_scale" style={{transform: "scale(" + this.props.wireframe.zoomPercent + ")"}}>
                     {components && components.map(component =>
                         component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent} currentComponent={this.props.currentComponent} /> :

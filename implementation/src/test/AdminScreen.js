@@ -30,6 +30,8 @@ class AdminScreen extends React.Component {
                 owner: wireFrameJson.owner,
                 zoomPercent: wireFrameJson.zoomPercent,
                 components: wireFrameJson.components,
+                width: wireFrameJson.width,
+                height: wireFrameJson.height,
                 timestamp: fireStore.FieldValue.serverTimestamp(),
             }).then(() => {
                 console.log("DATABASE RESET");

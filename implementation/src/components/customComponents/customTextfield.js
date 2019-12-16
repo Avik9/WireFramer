@@ -38,9 +38,10 @@ class CustomTextfield extends React.Component {
                         borderRadius: this.props.component.borderRadius,
                         borderStyle: "solid",
                         backgroundColor: this.props.component.backgroundColor,
-                        borderColor: this.props.component.borderColor,
+                        borderColor: this.props.component.color,
                         color: this.props.component.fontColor,
                         fontSize: this.props.component.fontSize,
+                        placeHolder: "Input"
                     }} 
                     onClick={(e) => this.props.setCurrentComponent(e, this.props.component)} 
                     onResizeStop={(e, direction, ref, delta, position) => {

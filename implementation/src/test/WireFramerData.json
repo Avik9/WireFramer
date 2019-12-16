@@ -5,6 +5,8 @@
             "name": "My WireFrame",
             "owner": "TB8XkT3XxBh2feRnIs0jZAnhOqQ2",
             "zoomPercent": 1,
+            "width": 750,
+            "height" : 750, 
             "components": [
                 {
                     "key": 0,
@@ -92,6 +94,8 @@
             "name": "McKenna's WireFrame",
             "owner": "FQv4OKRkR0eqhGruEM5rerjTMx83",
             "zoomPercent": 1,
+            "width": 750,
+            "height" : 750, 
             "components": [
                 {
                     "key": 0,
@@ -179,6 +183,8 @@
             "name": "My Home Page",
             "owner": "TB8XkT3XxBh2feRnIs0jZAnhOqQ2",
             "zoomPercent" : 1,
+            "width": 750,
+            "height" : 750, 
             "components": [
                 {
                     "key": 0,
@@ -266,6 +272,8 @@
             "name": "CSE 316 Website",
             "owner": "FQv4OKRkR0eqhGruEM5rerjTMx83",
             "zoomPercent" : 1,
+            "width": 750,
+            "height" : 750, 
             "components": [
                 {
                     "key": 0,

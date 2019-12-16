@@ -102,74 +102,16 @@ class EditScreen extends Component {
             height: 100,
             positionX: 0,
             positionY: 0,
-            text: "New" + item,
+            text: item === "customLabel" ? "Prompt for Input" : item === "customButton" ? "Submit" : item === "customTextfield" ? "Input" : "",
             fontSize: -1,
-            background: item === "customButton" ? "#d6d6d6" : item === "customLabel" ? "#ffffff" : "#ffffff",
-            borderColor: item === "customLabel" ? "#ffffff" : "#000000",
-            fontColor: "#000000",
+            backgroundColor: item === "customButton" ? "#f0f0f0" : item === "customLabel" ? "#e6e6e6" : "#ffffff",
+            borderColor: item === "customLabel" ? "#ffffff" : item === "customTextfield" ? "#d6d6d6" : "#000000",
+            color: "#000000",
             borderWidth: 2,
             borderRadius: 3,
-        };
+            placeHolder: item === "customTextfield" ? "Input" : item
 
-        // if (item === "customTextfield")
-        // {
-        //     element = {
-        //         text: "",
-        //         fontSize: 12,
-        //         backgroundColor: "white",
-        //         borderColor: "black",
-        //         fontColor: "#fbfbfb",
-        //         borderWidth: 2,
-        //         borderRadius: 0,
-        //         width: 250,
-        //         height: 50,
-        //         placeholder: "Input",
-        //     };
-        // }
-        // else if(item === "customContainer")
-        // {
-        //     element = {
-        //         text: "",
-        //         fontSize: -1,
-        //         backgroundColor: "white",
-        //         borderColor: "black",
-        //         fontColor: "black",
-        //         borderWidth: 3,
-        //         borderRadius: 0,
-        //         width: 70,
-        //         height: 50,
-        //     };
-        // }
-        // else if(item === "customLabel")
-        // {
-        //     element = {
-        //         type: "customLabel",
-        //         text: "Prompt for Input: ",
-        //         fontSize: 12,
-        //         backgroundColor: "white",
-        //         borderColor: "black",
-        //         fontColor: "black",
-        //         borderWidth: 2,
-        //         borderRadius: 0,
-        //         width: 250,
-        //         height: 50,
-        //         placeholder: "Label",
-        //     };
-        // }
-        // else if(item === "customButton")
-        // {
-        //     element = {
-        //         width: 100,
-        //         height: 27.5,
-        //         borderWidth: 1.5,
-        //         borderRadius: 5,
-        //         backgroundColor: "#e6e6e6",
-        //         borderColor: "#ffffff",
-        //         fontColor: "#ffffff",
-        //         fontSize: 12,
-        //         borderStyle: "solid",
-        //     }
-        // }
+        };
 
         this.props.wireframe.components.push(element);
 
@@ -304,6 +246,26 @@ class EditScreen extends Component {
         })
     }
 
+    updateHeight = (newHeight) => {
+        this.props.wireframe.height = newHeight;
+
+        console.log("New Height: " + this.props.wireframe.height);
+
+        this.setState({
+            wireframe: this.props.wireframe
+        });
+    }
+
+    updateWidth = (newWidth) => {
+        this.props.wireframe.width = newWidth;
+
+        console.log("New Width: " + this.props.wireframe.width);
+
+        this.setState({
+            wireframe: this.props.wireframe
+        });
+    }
+
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
@@ -326,7 +288,7 @@ class EditScreen extends Component {
                         />
                     </div>
 
-                    <div className="col s6 center">
+                    <div className="col s6 center" >
                         <CanvasColumn
                             wireframe={this.props.wireframe}
                             setCurrentComponent={this.setCurrentComponent}
@@ -350,6 +312,8 @@ class EditScreen extends Component {
                             changeFontColor={this.changeFontColor}
                             changeBorderWidth={this.changeBorderWidth}
                             changeBorderRadius={this.changeBorderRadius}
+                            updateHeight={this.updateHeight}
+                            updateWidth={this.updateWidth}
                         />
                     </div>
                 </div>

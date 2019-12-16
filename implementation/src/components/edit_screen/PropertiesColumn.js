@@ -46,7 +46,14 @@ class PropertiesColumn extends React.Component {
                     <br /><br />
                     <span>Border Thickness: <input className="active center" type="number" onChange={() => this.props.changeBorderWidth(component.key, this.refs.borderWidth.value)} value={component.borderWidth} ref="borderWidth"/></span>
                     <span>Border Radius: <input className="active center" type="number" onChange={() => this.props.changeBorderRadius(component.key, this.refs.borderRadius.value)} value={component.borderRadius} ref="borderRadius"/></span>
-                
+                    <span>Height: <input className="active center" type="number" onChange={() => (console.log("New Height"))} defaultValue={this.props.wireframe.height} ref="height"/></span>
+                    <span>Width: <input className="active center" type="number" onChange={() => (console.log("New Width"))} defaultValue={this.props.wireframe.width} ref="width"/></span>
+                    <button onClick={
+                        () => {
+                            this.props.updateHeight(this.refs.height.value)
+                            this.props.updateWidth(this.refs.width.value)
+                        }
+                    }> Update Dimensions </button>
                 </div>
             </div>
         );
