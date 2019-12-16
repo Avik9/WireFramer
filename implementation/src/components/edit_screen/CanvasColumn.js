@@ -24,7 +24,7 @@ class CanvasColumn extends React.Component {
 
 
         return (
-                <div className="canvas_column">
+                <div className="canvas_column" onClick={(e) => this.props.setCurrentComponent(e, "")}>
                     <div className="canvas_column_scale" style={{transform: "scale(" + this.props.wireframe.zoomPercent + ")"}}>
                     {components && components.map(component =>
                         component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent} currentComponent={this.props.currentComponent} /> :
@@ -36,9 +36,11 @@ class CanvasColumn extends React.Component {
                 </div>
         );
     }
-    // onClick={() => this.props.setCurrentComponent("")}
 
     keysPressed = (e) => { 
+
+        e.preventDefault();
+
         // store an entry for every key pressed
         this.props.keys[e.keyCode] = true;
         
@@ -63,7 +65,7 @@ class CanvasColumn extends React.Component {
             var newComponents = [];
 
             this.props.wireframe.components.forEach(element => {
-                element ? newComponents.push(element) : console.log()
+                element ? newComponents.push(element) : console.log("Deleted an element")
             })
 
             console.log(newComponents);

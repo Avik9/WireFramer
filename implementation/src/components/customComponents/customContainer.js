@@ -29,7 +29,7 @@ class CustomContainer extends React.Component {
                 height: this.props.component.height,
             }}
                 bounds=".canvas_column"
-                onClick={() => this.props.setCurrentComponent(this.props.component)} 
+                onClick={(e) => this.props.setCurrentComponent(e, this.props.component)} 
                 style={{
                     width: this.props.component.width,
                     height: this.props.component.height,

@@ -42,7 +42,7 @@ class CustomTextfield extends React.Component {
                         color: this.props.component.fontColor,
                         fontSize: this.props.component.fontSize,
                     }} 
-                    onClick={() => this.props.setCurrentComponent(this.props.component)} 
+                    onClick={(e) => this.props.setCurrentComponent(e, this.props.component)} 
                     onResizeStop={(e, direction, ref, delta, position) => {
                           this.props.component.width = ref.style.width;
                           this.props.component.height = ref.style.height;

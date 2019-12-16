@@ -32,7 +32,7 @@ class CustomLabel extends React.Component {
                 bounds=".canvas_column"
                 className="active center" 
                 type="text" 
-                onClick={() => this.props.setCurrentComponent(this.props.component)} 
+                onClick={(e) => this.props.setCurrentComponent(e, this.props.component)} 
                 style={{width: this.props.component.width,
                     height: this.props.component.height,
                     borderWidth: this.props.component.borderWidth,

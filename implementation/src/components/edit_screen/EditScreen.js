@@ -56,8 +56,8 @@ class EditScreen extends Component {
         return;
     }
 
-    setCurrentComponent = (comp) => {
-
+    setCurrentComponent = (e, comp) => {
+        e.stopPropagation();
         if(comp === "")
         {
             console.log("Setting currentComponent as: ");
@@ -171,7 +171,12 @@ class EditScreen extends Component {
 
         this.props.wireframe.components.push(element);
 
-        this.setCurrentComponent(element);
+        console.log("Setting currentComponent as: ");
+            console.log(element)
+    
+            this.setState({
+                currentComponent: element,
+            });
     }
 
     changeName = (value) => {
@@ -277,8 +282,22 @@ class EditScreen extends Component {
     setComponents = (newComponents) => {
         this.props.wireframe.components = newComponents;
 
+        for (let i = 0; i < this.props.wireframe.components.length; i++) {
+            this.props.wireframe.components[i].key = i;
+        }
+
         this.setState({
-            wireframe: this.props.wireframe.components
+            wireframe: this.props.wireframe,
+            currentComponent: {
+                key: this.props.wireframe.length,
+                text: "",
+                fontSize: "",
+                backgroundColor: "",
+                borderColor: "",
+                fontColor: "",
+                borderWidth: "",
+                borderRadius: "",
+            },
         })
     }
 
