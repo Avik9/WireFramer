@@ -24,7 +24,7 @@ class CanvasColumn extends React.Component {
 
 
         return (
-                <div className="canvas_column" >
+                <div className="canvas_column">
                     <div className="canvas_column_scale" style={{transform: "scale(" + this.props.wireframe.zoomPercent + ")"}}>
                     {components && components.map(component =>
                         component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent} currentComponent={this.props.currentComponent} /> :
@@ -36,25 +36,19 @@ class CanvasColumn extends React.Component {
                 </div>
         );
     }
-    // onClick={() => this.props.setCurrentComponent(undefined)}
+    // onClick={() => this.props.setCurrentComponent("")}
 
     keysPressed = (e) => { 
         // store an entry for every key pressed
         this.props.keys[e.keyCode] = true;
         
-        // Ctrl + Z
-        if (this.props.keys[17] && this.props.keys[90]) {
+        // Ctrl + D
+        if (this.props.keys[17] && this.props.keys[68] && this.props.currentComponent.text !== "") {
 
-            // if(this.props.jsTPSstack.hasTransactionToUndo())
-            // {
-            //     this.props.jsTPSstack.undoTransaction();
+            console.log("Duplicate the current component");
+            console.log(this.props.currentComponent);
 
-            //     document.getElementById('list_name_textfield').value = this.props.todoList.name;
-            //     document.getElementById('list_owner_textfield').value = this.props.todoList.owner;
-
-            //     this.props.loadList(this.props.getCurrentList());
-            //     this.setState({});
-            // }
+            this.props.duplicateComponent(this.props.currentComponent);
             
             this.props.keys[17] = false; 
             this.props.keys[90] = false;
@@ -62,28 +56,25 @@ class CanvasColumn extends React.Component {
             // prevent default browser behavior
             e.preventDefault();	
         }
-        
-        // Ctrl + Y
-        if (this.props.keys[17] && this.props.keys[89]) {
-            // do something
+        else if((this.props.keys[46] || this.props.keys[8]) && this.props.currentComponent.text !== "")
+        {
+            delete this.props.wireframe.components[this.props.currentComponent.key];
 
-            if(this.props.jsTPSstack.hasTransactionToRedo()){
-                this.props.jsTPSstack.doTransaction();
+            var newComponents = [];
 
-                document.getElementById('list_name_textfield').value = this.props.todoList.name;
-                document.getElementById('list_owner_textfield').value = this.props.todoList.owner;
-    
-                this.props.loadList(this.props.getCurrentList());
-                this.setState({});
-            }
-            
-            this.props.keys[17] = false; 
-            this.props.keys[89] = false;
+            this.props.wireframe.components.forEach(element => {
+                element ? newComponents.push(element) : console.log()
+            })
 
-            // prevent default browser behavior
-            e.preventDefault();	
+            console.log(newComponents);
+
+            this.props.setComponents(newComponents);
+
+            e.preventDefault();
         }
-
+        else if(this.props.keys[17] && this.props.keys[68]){
+            console.log(this.props.currentComponent)
+        }
         return;
     }
 

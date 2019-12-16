@@ -12,10 +12,19 @@ class EditScreen extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
-            currentComponent: [],
             wireframe: this.props.wireframe,
+            components: this.props.wireframe.components,
+            currentComponent: {
+                key: this.props.wireframe.length,
+                text: "",
+                fontSize: "",
+                backgroundColor: "",
+                borderColor: "",
+                fontColor: "",
+                borderWidth: "",
+                borderRadius: "",
+            }
         }
     }
 
@@ -49,12 +58,33 @@ class EditScreen extends Component {
 
     setCurrentComponent = (comp) => {
 
-        console.log("Setting currentComponent as: ");
-        console.log(comp)
+        if(comp === "")
+        {
+            console.log("Setting currentComponent as: ");
+            console.log(comp)
+    
+            this.setState({
+                currentComponent: {
+                    key: this.props.wireframe.length,
+                    text: "",
+                    fontSize: "",
+                    backgroundColor: "",
+                    borderColor: "",
+                    fontColor: "",
+                    borderWidth: "",
+                    borderRadius: "",
+                }
+            });
+        }
 
-        this.setState({
-            currentComponent: comp
-        });
+        else{
+            console.log("Setting currentComponent as: ");
+            console.log(comp)
+    
+            this.setState({
+                currentComponent: comp
+            });
+        }
     }
 
     closeFrame = () => {
@@ -78,6 +108,7 @@ class EditScreen extends Component {
             borderWidth: 2,
             borderRadius: 3,
         };
+
         // if (item === "customTextfield")
         // {
         //     element = {
@@ -230,6 +261,27 @@ class EditScreen extends Component {
         });
     }
 
+    duplicateComponent = (element) => {
+        console.log("Duplicating the following element");
+        console.log(element);
+
+        var newElement = JSON.parse(JSON.stringify(element));;
+        newElement.positionX = element.positionX - 100;
+        newElement.positionY = element.positionY - 100;
+
+        this.props.wireframe.components.push(newElement);
+
+        this.setCurrentComponent(newElement);
+    }
+
+    setComponents = (newComponents) => {
+        this.props.wireframe.components = newComponents;
+
+        this.setState({
+            wireframe: this.props.wireframe.components
+        })
+    }
+
     render() {
         if (!this.props.auth.uid) {
             return <Redirect to="/login" />;
@@ -258,6 +310,8 @@ class EditScreen extends Component {
                             setCurrentComponent={this.setCurrentComponent}
                             currentComponent={this.state.currentComponent}
                             zoom={this.props.wireframe.zoomPercent}
+                            duplicateComponent={this.duplicateComponent}
+                            setComponents={this.setComponents}
                             keys={[]}
                         />
                     </div>

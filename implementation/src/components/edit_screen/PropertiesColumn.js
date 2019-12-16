@@ -2,15 +2,17 @@ import React from 'react';
 
 class PropertiesColumn extends React.Component {
     render() {
-        var component = this.props.component !== undefined ? this.props.component : {
-            text: "",
-            fontSize: "",
-            backgroundColor: "",
-            borderColor: "",
-            fontColor: "",
-            borderWidth: "",
-            borderRadius: "",
-        }
+        // console.log(this.props)
+        var component = this.props.component //? this.props.component : {
+        //     key: 5,
+        //     text: "",
+        //     fontSize: "",
+        //     backgroundColor: "",
+        //     borderColor: "",
+        //     fontColor: "",
+        //     borderWidth: "",
+        //     borderRadius: "",
+        // }
 
         return (
             <div className="card z-depth-0 wireframe-list-link">
