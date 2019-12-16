@@ -57,7 +57,7 @@ class EditScreen extends Component {
     }
 
     setCurrentComponent = (e, comp) => {
-        e.stopPropagation();
+
         if(comp === "")
         {
             console.log("Setting currentComponent as: ");
@@ -84,7 +84,9 @@ class EditScreen extends Component {
             this.setState({
                 currentComponent: comp
             });
+            e.stopPropagation();
         }
+    
     }
 
     closeFrame = () => {
@@ -266,7 +268,8 @@ class EditScreen extends Component {
         });
     }
 
-    duplicateComponent = (element) => {
+    duplicateComponent = (e, element) => {
+        // e.preventDefault();
         console.log("Duplicating the following element");
         console.log(element);
 
@@ -276,7 +279,7 @@ class EditScreen extends Component {
 
         this.props.wireframe.components.push(newElement);
 
-        this.setCurrentComponent(newElement);
+        this.setCurrentComponent(e, newElement);
     }
 
     setComponents = (newComponents) => {

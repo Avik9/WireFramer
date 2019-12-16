@@ -14,6 +14,8 @@ class PropertiesColumn extends React.Component {
         //     borderRadius: "",
         // }
 
+        console.log(component);
+
         return (
             <div className="card z-depth-0 wireframe-list-link">
                 <div className="card-content grey-text text-darken-3 item-card">
@@ -44,6 +46,7 @@ class PropertiesColumn extends React.Component {
                     <br /><br />
                     <span>Border Thickness: <input className="active center" type="number" onChange={() => this.props.changeBorderWidth(component.key, this.refs.borderWidth.value)} value={component.borderWidth} ref="borderWidth"/></span>
                     <span>Border Radius: <input className="active center" type="number" onChange={() => this.props.changeBorderRadius(component.key, this.refs.borderRadius.value)} value={component.borderRadius} ref="borderRadius"/></span>
+                
                 </div>
             </div>
         );

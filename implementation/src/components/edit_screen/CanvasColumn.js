@@ -39,7 +39,7 @@ class CanvasColumn extends React.Component {
 
     keysPressed = (e) => { 
 
-        e.preventDefault();
+        // e.preventDefault();
 
         // store an entry for every key pressed
         this.props.keys[e.keyCode] = true;
@@ -50,7 +50,7 @@ class CanvasColumn extends React.Component {
             console.log("Duplicate the current component");
             console.log(this.props.currentComponent);
 
-            this.props.duplicateComponent(this.props.currentComponent);
+            this.props.duplicateComponent(e, this.props.currentComponent);
             
             this.props.keys[17] = false; 
             this.props.keys[90] = false;
@@ -74,6 +74,9 @@ class CanvasColumn extends React.Component {
 
             this.props.setComponents(newComponents);
 
+            e.preventDefault();
+        }
+        else if(this.props.keys[8]){
             e.preventDefault();
         }
         else if(this.props.keys[17] && this.props.keys[68]){
