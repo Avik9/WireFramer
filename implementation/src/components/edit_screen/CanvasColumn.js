@@ -64,7 +64,7 @@ class CanvasColumn extends React.Component {
         }
 
         // Delete and Backspace
-        else if((this.props.keys[46] || this.props.keys[8]) && this.props.currentComponent.text !== "")
+        else if((this.props.keys[46]) && this.props.currentComponent.text !== "") // || this.props.keys[8]
         {
             delete this.props.wireframe.components[this.props.currentComponent.key];
 

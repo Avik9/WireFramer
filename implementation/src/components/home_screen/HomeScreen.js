@@ -13,6 +13,8 @@ class HomeScreen extends Component {
             owner: this.props.auth.uid,
             timestamp: this.props.firestore.FieldValue.serverTimestamp(),
             zoomPercent: 100,
+            width: 750,
+            height: 750,
         }
         this.props.firestore.collection('wireframes').add(wireframe).then(ref => {
             this.props.history.push('/wireframe/' + ref.id);
