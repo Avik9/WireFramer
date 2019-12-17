@@ -34,7 +34,7 @@ class CanvasColumn extends React.Component {
                         component.type === "customButton" || component.type === "sampleButton" ? <CustomButton key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent} currentComponent={this.props.currentComponent} /> :
                             component.type === "customLabel" || component.type === "sampleLabel" ? <CustomLabel key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent}  currentComponent={this.props.currentComponent} /> :
                                 component.type === "customContainer" || component.type === "sampleContainer" ? <CustomContainer key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent} currentComponent={this.props.currentComponent} /> :
-                                    component.type === "customTextField" || component.type === "sampleTextfield" ? <CustomTextfield key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent} currentComponent={this.props.currentComponent} /> : null
+                                    component.type === "customTextfield" || component.type === "sampleTextfield" ? <CustomTextfield key={component.key} zoom={this.props.zoom} component={component} setCurrentComponent={this.props.setCurrentComponent} currentComponent={this.props.currentComponent} /> : null
                     )}
                     </div>
                 </div>

@@ -102,8 +102,8 @@ class EditScreen extends Component {
             height: 100,
             positionX: 0,
             positionY: 0,
-            text: item === "customLabel" ? "Prompt for Input" : item === "customButton" ? "Submit" : item === "customTextfield" ? "Input" : "",
-            fontSize: -1,
+            text: item === "customLabel" ? "Prompt for Input" : item === "customButton" ? "Submit" : item === "customTextfield" ? "Input" : "customContainer",
+            fontSize: item === "customContainer" ? -1 : 12,
             backgroundColor: item === "customButton" ? "#f0f0f0" : item === "customLabel" ? "#e6e6e6" : "#ffffff",
             borderColor: item === "customLabel" ? "#ffffff" : item === "customTextfield" ? "#d6d6d6" : "#000000",
             color: "#000000",
@@ -116,7 +116,10 @@ class EditScreen extends Component {
         this.props.wireframe.components.push(element);
 
         console.log("Setting currentComponent as: ");
-            console.log(element)
+        console.log("Current Element:");
+        console.log(element);
+        console.log("Current Wireframe");
+        console.log(this.props.wireframe);
     
             this.setState({
                 currentComponent: element,
