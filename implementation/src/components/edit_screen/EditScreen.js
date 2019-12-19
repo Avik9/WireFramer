@@ -52,6 +52,8 @@ class EditScreen extends Component {
             components: this.props.wireframe.components,
             name: this.props.wireframe.name === '' ? "(No Name)" : this.props.wireframe.name,
             zoomPercent: this.props.wireframe.zoomPercent,
+            width: this.props.wireframe.width,
+            height: this.props.wireframe.height,
         });
         return;
     }
